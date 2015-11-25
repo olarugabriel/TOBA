@@ -1,0 +1,779 @@
+#backgr{
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  min-width: 100%;
+  min-height: 100%;
+}
+#icon{
+   height: 100%;
+   width: 33%;
+}
+h1{
+position:relative;
+text-align: center;
+ color: white;
+}
+#banner{
+position:relative;
+height:13%; 
+display:block;
+
+margin-right:5%;
+margin-left:5%;
+background: url(banner.jpg) no-repeat;
+ background-size: 100%;
+ 
+}
+#top,#bottom{
+position:static;
+
+margin-top:1%;
+height:30%;
+
+}
+
+.stats{
+margin-top:1%;
+margin-left:5%;
+margin-right:8%;
+display:inline-flex;
+float:left;
+width: 20%; 
+   height: 100%;
+}
+.stats-t p{
+float:left;
+margin-top:2%;
+}
+.stats-i{
+ width: 33%;
+}
+#big{
+position:relative;
+margin-left:5%;
+margin-right:5%;
+height: 100%;
+}
+#sider{
+float:left;
+width:15%;
+
+}
+#clasa{
+
+   height: 35%;
+   width: 100%;
+background: url(mayan.jpg) no-repeat;
+}
+#nume{
+position:relative;
+float:left;
+background-color: rgba(93,79,61,1);
+ height: 10%;
+   width: 50%;
+ margin-top:2%;
+ margin-left:15%;
+ border-style:solid;
+}
+#nume p{
+position:relative;
+float:left;
+text-align: center;
+margin-left:35%;
+font-weight: bold;
+}
+#main{
+	position:relative;
+	float:right;
+	background-color: rgba(151,80,6,0.9);
+	height: auto;
+	width: 85%;
+	opacity: .99; 
+}
+
+#avatar{
+   position:relative;
+   float:right;
+   margin-top:2%;
+   margin-right:2%;
+   width: 15%;
+   height: 25%;
+   
+
+}
+#ava{
+   max-width: 100%;
+   max-height: 100%;
+}
+
+#echipament{
+
+position:relative;
+float:left;
+ width: 50%;
+   height: 80%;
+   
+   margin-left:10%;
+ 
+}
+.r1,.r2,.r3{
+border-style:solid;
+ width: 20%;
+ height: 20%;
+ background-color: rgba(93,79,61,0.5);
+}
+.s1,.s2,.s3{
+width:21%;
+}
+.r1{
+ margin-top:5%;
+ margin-left:41%;
+}
+.s1{
+
+margin-right:35%;
+margin-left:41%;
+
+}
+.r2{
+
+display:inline;
+  width: 20%;
+   height: 20%;
+   float:left;
+   margin-top:4%;
+   margin-left:10%;
+}
+.s2{
+
+display:inline;
+   float:left;
+   
+     margin-right:0%;
+   margin-left:10%;
+}
+.r3{
+display:inline;
+ width: 20%;
+   height: 20%;
+   float:left;
+   margin-top:6%;
+   margin-left:10%;
+}
+.s3{
+
+display:inline;
+   float:left;
+   
+     margin-right:0%;
+   margin-left:10%;
+
+}
+.equip{
+   max-width: 90%;
+   max-height: 90%;
+    min-width: 40%;
+   min-height: 40%;
+   margin-left:9%;
+   margin-top:5%;
+}
+#train{ 
+	position:relative;
+	float:right;
+	height:auto;
+	width: 25%;
+	margin-top:5%;  
+	background-color: #aa7839;
+	display: flex;
+	padding-top:5%;
+	padding-bottom:5%;
+	flex-direction: column;
+	justify-content: center;
+}
+.att1 input{
+	display:inline;
+	float:left;
+	margin:6%;
+	vertical-align: text-top;
+	text-align: left;
+	margin-top:3%;
+
+}
+.att1 p{
+	display:inline;
+	float:left;
+	margin:4%;
+	vertical-align: text-top;
+	text-align: left;
+}
+
+.att1{
+width: auto;
+margin-left:5%;
+margin-top:1%;
+margin-bottom: 10;
+}
+footer p{
+float:right;
+position:relative;
+margin-right:5%;
+}
+/*QUEST */
+#qTitle{
+text-align: center;
+float:left;
+}
+#title_container{
+position:relative;
+float:left;
+margin-left:10%;
+}
+#avatarQ{
+   position:relative;
+   float:left;
+   margin-top:2%;
+   margin-right:2%;
+   width: 15%;
+   height: 25%;
+   
+}
+#avaQ{
+   max-width: 100%;
+   max-height: 100%;
+}
+
+#quest_story{
+	position:relative;
+	float:right;
+	width: 60%;
+	height: auto;
+	margin-right:15%;
+	margin-top:5%;
+}
+#quest_story p{
+font-weight: bold;
+}
+#quest_req{
+	position:relative;
+	float:left;
+	margin-top:5%;
+	margin-left:5%;
+	font-weight: bold;
+
+}
+#quest_do{
+	position:relative;
+	float:left;
+	margin-top:5%;
+	margin-left:15%;
+	font-weight: bold;
+}
+#quest_buttons{
+	position:relative;
+	float:left;
+	margin-top: 5%;
+	margin-right: 30%;
+	margin-left: 10%;
+	width: 85%;
+	height: auto;
+	margin-bottom:5%;
+}
+.quest_a{
+    margin-left:30%;
+	margin-right:36%;
+
+}
+
+/* bgd */
+
+.mainfightmap{
+ position:relative;
+ height: 75%;
+}
+.footerfightmap{
+ 
+ height: 25%;
+ width: 101%;
+float: left;
+}
+
+.mainleftmap{
+ float:left;
+ width:32%;
+ 
+}
+.maincentermap{
+ float:left;
+ width:33%;
+ 
+}
+.mainrightmap{
+ float:left;
+ width:32%;
+}
+
+.clearfix{
+    clear:both;
+}
+.mainmidmap
+{
+ margin-top:5%;
+ text-align: center;
+}
+.footermap1{
+ float:left;
+ 
+ width:20%;
+}
+.footermap2{
+ float:left;
+ 
+ width:20%;
+}
+.footermap3{
+ float:left;
+
+width:20%;
+ }
+.footermap4{
+ float:left;
+ 
+  width:20%;
+}
+.footermap5{
+ float:left;
+
+width:19%;
+  }
+
+
+.footerimage1{
+ width:100%;
+ height:100%;
+}
+#main2{
+	position:relative;
+	float:right;
+	background: url(forest.jpg) no-repeat;
+	height: auto;
+	width: 85%;
+	opacity: .99; 
+}
+
+/* BGD ++ */
+
+
+#buton1,#buton2{
+	
+	background-color:rgb(120,63,4);
+	border-color: black;
+	box-shadow: 5px 5px  black;
+	color:white;
+	padding-left: 3%;
+	padding-right: 3%;
+	padding-top:1%;
+	padding-bottom:1%;
+	font-weight:bold;
+	margin-left:7%;
+	margin-right:7%;
+}
+#buton1:hover{
+	background-color:orange;
+}
+#buton2:hover{
+	background-color:orange;
+}
+
+#imagine-mars-la-stanga{
+    float: left;
+    width: 35%;
+    height: 334px;
+}
+
+.post-content{
+    float: left;
+    width: 65%;
+    height: auto;
+}
+
+.clearfix{
+    clear: both;
+}
+
+.images {
+		position:relative;
+		 width: 20%;
+		 margin-top:3%;
+		 margin-left:40%;
+         display: block;
+         height: auto;
+}
+
+#oala-cu-butoane{
+    margin-left: 20px;
+}
+
+#buton3{
+background-color:rgb(120,63,4);
+border-color: black;
+box-shadow: 5px 5px  black;
+color:white;
+padding-left: 2%;
+padding-right: 2%;
+padding-top:1%;
+padding-bottom:1%;
+font-weight:bold;
+margin-left: 0px;
+margin-right: 3%;
+margin-top:3%;
+height: 10%;
+width: 21%;
+}
+
+#buton3:hover{
+	background-color:orange;
+}
+
+.input_width{
+    width: 65%;
+}
+
+.race{
+	border-style:solid;
+	border-color: black;
+	background-color: rgba(122,74,16,0.7);
+	color:black;
+	margin-left:25%;
+	margin-top:6%;
+	width: 50%;
+	padding-bottom:3%;
+	margin-bottom:2%;
+}
+.racetopleft{
+
+	width: 40%;
+    height: 30%;
+	overflow:hidden;
+    height:50%;
+	
+}
+.racetopright{
+
+	width: 50%;
+    height: 200px;
+    background: gray;
+	overflow:hidden;
+}
+.racetop{
+	display:block;
+	height:50%;
+	
+}
+.racebot{
+	display:block;
+	height:50%;
+
+}
+.racetop img{
+
+	height:100%;
+}
+
+.post-thumb {
+    float: left;
+}
+
+
+.post-title {
+    font-weight: bold;
+    font-size: 200%
+}
+
+
+.homeform{
+	border-style:solid;
+	border-color: black;
+	 border-radius: 25px;
+	background-color: rgb(122,74,16);
+    opacity: 0.7;
+	color:black;
+	margin-left:25%;
+	margin-top:6%;
+	width: 50%;
+	padding-top:2%;
+	padding-bottom:2%;
+}
+.form{
+	padding-top:3%;
+	padding-left:28%;
+
+}
+.formregister{
+	padding-left:28%;
+	margin-bottom:5%;
+}
+
+.homeform h1{
+margin-right:40%;
+}
+
+
+/*  GABI */
+
+
+#big #main map figure img
+{
+   width:100%;
+   height:90%;
+}
+
+
+
+#section_fight {
+     background-color: #a5651b;
+}
+
+#section_left {
+    width: 40%;
+   height: 80%;
+   background-color: #a5651b;
+   float: left;
+}
+
+#section_center {
+    
+}
+
+#section_center {
+    width: 20%;
+   height: 80%;
+    background-color: #a5651b;
+     float: left;
+}
+
+#section_right {
+     width: 40%;
+   height: 80%;
+ background-color: #a5651b;
+       float: left;
+    
+}
+
+#versus {
+  font-size: 60px;  
+}
+
+#fight_poza_left {
+
+    
+}
+
+#stats_fight_left {
+   
+    
+}
+
+#stats_left {
+     margin-top: 20px;
+   float:left;
+    height: auto;
+
+}
+
+#stats_right {
+    margin-top: 20px;
+    border-style: solid;
+   border-width: 3px;
+    border-radius: 25px;
+     width: 40%;
+   height: 40%;
+  background-color: #846641;
+  float: right;
+    margin-right: 10%;
+    height: auto;
+
+}
+
+#stats_left_from_left {
+  margin-top: 20px;
+    border-style: solid;
+   border-width: 3px;
+    border-radius: 25px;
+     width: 40%;
+   height: 40%;
+  background-color: #846641;
+  float: left;
+  margin-left:10%;
+    height: auto;
+}
+
+.poza_avatar {
+       width:50%;
+   height: 25%;
+}
+
+#stats_right_from_left {
+        margin-top: 20px;
+   float:right;
+    height: auto;
+}
+
+#section_fight ul li{
+    list-style: none;
+   margin-left: -20px;
+
+    
+}
+
+.img_fight {
+      width:20px;
+   padding-right: 5px;
+    padding-left: 5px;
+}
+
+#console {
+   border-style: solid;
+   border-width: 3px;
+   width: 100%;
+   height: 20%;
+   background-color: #aa7839;
+   float:left; 
+}
+
+#console p {
+     margin-left:10%;
+}
+
+#figt_poza_right {
+
+ 
+    
+}
+
+#avatar_right {
+
+
+}
+
+progress {
+  
+}
+
+#avatar_left {
+    margin-left: 10%;
+    
+}
+
+
+
+
+
+/*EFECTE */
+ .menu, .menu ul, .menu ul li, .menu ul li a {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      list-style: none;
+      line-height: 1;
+      display: block;
+      position: relative;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+}
+.menu {
+      width: 100%;
+      font-family: Helvetica, Arial, sans-serif;
+      color: #ffffff;
+}
+.menu.align-right {
+      float: right;
+}
+.menu:after, .menu ul:after {
+      content: ".";
+      display: block;
+      clear: both;
+      visibility: hidden;
+      line-height: 0;
+      height: 0;
+}
+.menu ul li {
+      display: block;
+      z-index: 1;
+      background: #5d4f3d;
+      border-bottom: solid 1px #333;
+}
+.menu ul li::after {
+      content: "";
+      width: 100%;
+      height: 8px;
+      position: absolute;
+      border-top-left-radius: 50% 4px;
+      border-top-right-radius: 50% 4px;
+      background: #5d4f3d;
+      z-index: 2;
+      bottom: 10px;
+}
+.menu ul li a {
+      display: block;
+      padding: 10px 30px;
+      text-decoration: none;
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #ffffff;
+      z-index: 3;
+}
+.menu ul li a:hover, .menu ul li.active a {
+      color: #ffffff;
+}
+.menu ul li:hover, .menu ul li.active {
+      background: #aa7839;
+}
+.menu ul li:hover::after, .menu ul li.active::after {
+      background: #aa7839;
+
+}
+.qplus {
+    display:block;
+    width:10%;
+    height:60%;
+    line-height:3%;
+   
+    border-radius: 50%;
+    color:#ffffff;
+    text-align:center;
+    
+    background: #000000;
+    
+    font-size:20px;
+    font-weight:bold;
+}
+.qplus:hover {
+    background: #000000;
+}
+.quest_np {
+  border: 0 none;
+  border-radius: 36px;
+  padding: 1% 2%;
+  display: inline-block;
+  background:#5d4f3d;
+  font-size: 14px;
+  color: #fff;
+  text-transform: none;
+  
+  transition: all 100ms ease-in-out;
+
+  &:hover {
+      opacity: .7;
+  }
+}
+.quest_a{
+background:#846641;
+border-color: black;
+box-shadow: 5px 5px  black;
+color:white;
+font-weight:bold;
+height: 5%;
+width: 8%;
+}
