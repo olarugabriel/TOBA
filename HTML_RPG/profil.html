@@ -3,6 +3,164 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/normalize.css">
 <title> World Hellshout</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>s
+<script>
+     $(document).ready(function(){
+         var loggedin = JSON.parse(localStorage.getItem("loggedin"));
+          if(loggedin[0]!=null){
+              var user = loggedin[0];
+              //alert(user);
+              var profile = JSON.parse(localStorage.getItem("profile"));
+              for(index = 0; index < profile.length; index++) {
+                  var profile_var=profile[index];
+                  if(profile_var.user==user)
+                      {var rasa=profile[index].rasa;
+                      var str=profile[index].putere;
+					  var dex=profile[index].dexteritate;
+					  var intel=profile[index].inteligenta;
+					  var sta=profile[index].stamina;
+					  var end=profile[index].rezistenta;
+                      var avail_money=profile[index].bani;
+					  }
+              }
+              
+              var pret_var = JSON.parse(localStorage.getItem("pret_attr"));
+                            
+              var pret=pret_var.pret;
+              var next_price_str = parseFloat(str) * parseFloat(pret);
+			  var next_price_dex = parseFloat(dex) * parseFloat(pret);
+			  var next_price_int = parseFloat(intel) * parseFloat(pret);
+			  var next_price_sta = parseFloat(sta) * parseFloat(pret);
+			  var next_price_end = parseFloat(end) * parseFloat(pret);
+             
+              //Strenght
+              $('#gold_for_str').append(next_price_str + " G");
+              $('#points_for_str').append(str);
+              
+			  $('#gold_for_dex').append(next_price_dex + " G");
+              $('#points_for_dex').append(dex);
+			  
+			  $('#gold_for_int').append(next_price_int + " G");
+              $('#points_for_int').append(intel);
+			  
+			  $('#gold_for_sta').append(next_price_sta + " G");
+              $('#points_for_sta').append(sta);
+			  
+			  $('#gold_for_end').append(next_price_end + " G");
+              $('#points_for_end').append(end);
+			  
+			  
+			  
+			  
+              var rasalist = JSON.parse(localStorage.getItem("rasalist"));
+              for(index = 0; index < rasalist.length; index++) {
+                      if(rasalist[index].name==rasa){
+                          var img=rasalist[index].img;
+                      }
+              }
+              $(".avatar_c").attr("src",img);
+              
+          }
+         $("#qplus_str").click(function(){
+              if(avail_money < next_price_str)
+                  alert("Nu aveti sufiienti bani!");
+            else{
+                new_avail_money=avail_money-next_price_str;
+                for(index = 0; index < profile.length; index++) {
+                    var profile_var=profile[index];
+                        if(profile_var.user==user){
+                            profile[index].bani=new_avail_money;
+                            profile[index].putere=profile[index].putere + 1;
+                            localStorage.setItem('profile', JSON.stringify(profile));
+                            location.reload();
+                        }
+                }
+            }
+         });
+		 
+		 $("#qplus_dex").click(function(){
+              if(avail_money < next_price_dex)
+                  alert("Nu aveti sufiienti bani!");
+            else{
+                new_avail_money=avail_money-next_price_dex;
+                for(index = 0; index < profile.length; index++) {
+                    var profile_var=profile[index];
+                        if(profile_var.user==user){
+                            profile[index].bani=new_avail_money;
+                            profile[index].dexteritate=profile[index].dexteritate + 1;
+                            localStorage.setItem('profile', JSON.stringify(profile));
+                            location.reload();
+                        }
+                }
+            }
+         });
+		 
+		 $("#qplus_int").click(function(){
+              if(avail_money < next_price_int)
+                  alert("Nu aveti sufiienti bani!");
+            else{
+                new_avail_money=avail_money-next_price_int;
+                for(index = 0; index < profile.length; index++) {
+                    var profile_var=profile[index];
+                        if(profile_var.user==user){
+                            profile[index].bani=new_avail_money;
+                            profile[index].inteligenta=profile[index].inteligenta + 1;
+                            localStorage.setItem('profile', JSON.stringify(profile));
+                            location.reload();
+                        }
+                }
+            }
+         });
+		 
+		 $("#qplus_sta").click(function(){
+              if(avail_money < next_price_sta)
+                  alert("Nu aveti sufiienti bani!");
+            else{
+                new_avail_money=avail_money-next_price_sta;
+                for(index = 0; index < profile.length; index++) {
+                    var profile_var=profile[index];
+                        if(profile_var.user==user){
+                            profile[index].bani=new_avail_money;
+                            profile[index].stamina=profile[index].stamina + 1;
+                            localStorage.setItem('profile', JSON.stringify(profile));
+                            location.reload();
+                        }
+                }
+            }
+         });
+		 
+		 $("#qplus_end").click(function(){
+              if(avail_money < next_price_end)
+                  alert("Nu aveti sufiienti bani!");
+            else{
+                new_avail_money=avail_money-next_price_end;
+                for(index = 0; index < profile.length; index++) {
+                    var profile_var=profile[index];
+                        if(profile_var.user==user){
+                            profile[index].bani=new_avail_money;
+                            profile[index].rezistenta=profile[index].rezistenta + 1;
+                            localStorage.setItem('profile', JSON.stringify(profile));
+                            location.reload();
+                        }
+                }
+            }
+         });
+		 
+		 
+		 
+         
+         $("#logout").click(function(){
+             var loggedin = JSON.parse(localStorage.getItem("loggedin"));
+                  if(loggedin[0]!=null){
+                      loggedin=null;
+                      localStorage.setItem('loggedin', JSON.stringify(loggedin));
+                      window.location.href = "home.html";
+                  }
+         });
+         
+     });
+</script>
+
 </head>
 
 <body>
@@ -18,7 +176,7 @@
 					</article>
 				
 					<article class="stats-t">
-						<p>200/250</p>
+						<p id="viata"></p>
 					</article>
 
 				</article>
@@ -28,7 +186,7 @@
 					</article>
 					
 					<article class="stats-t">
-						<p>2500</p>
+						<p id="bani"></></p>
 					</article>
 				
 				</article>
@@ -53,7 +211,7 @@
 					</article>
 					
 					<article class="stats-t">
-						<p>Level 5 75%</p>
+						<p  id="nivel"></></p>
 					</article>				
 				
 				</article>
@@ -65,7 +223,7 @@
 					</article>
 					
 					<article class="stats-t">
-						<p>2/12</p>
+						<p  id="energie"></></p>
 					</article>				
 				
 				</article>
@@ -77,7 +235,7 @@
 					</article>
 					
 					<article class="stats-t">
-						<p>Mayan</p>
+						<p  id="rasa"></></p>
 					</article>
 					
 				</article>
@@ -89,16 +247,13 @@
 <main id="big">	
 
 	<aside id="sider">
-		<article id="clasa">
-		</article>
+		<article id="clasa"><img class="avatar_c" src="" /></article>
 		<nav class="menu">
-			<ul>
-				<li><a href="default.asp">Home</a></li>
-				<li><a href="news.asp">Profile</a></li>
-				<li><a href="contact.asp">Quest</a></li>
-				<li><a href="about.asp">Explore</a></li>
-				<li><a href="about.asp">Account</a></li>
-				<li><a href="about.asp">Log Out</a></li>
+			<ul>		
+				<li><a href="profil.html">Profile</a></li>
+				<li><a href="quest.html">Quest</a></li>
+				<li><a href="explore.html">Explore</a></li>
+				<li><a id="logout" href="#">Log Out</a></li>
 			</ul> 
 		</nav>
 	</aside>
@@ -173,11 +328,12 @@
 		</article>
 	
 		<article id="train">
-		  <article class="att1"><input type='button' value='+' class='qplus' field='quantity' /><p>250 G</p><p> 9</p><p>Strength    </p></article>
-		  <article class="att1"><input type='button' value='+' class='qplus' field='quantity' /><p>100 G</p><p> 5</p><p>Dexterity   </p></article>
-		  <article class="att1"><input type='button' value='+' class='qplus' field='quantity' /><p>100 G</p><p> 5</p><p>Intelligence</p></article>
-		  <article class="att1"><input type='button' value='+' class='qplus' field='quantity' /><p>750 G</p><p>11</p><p>Stamina     </p></article>
-		  <article class="att1"><input type='button' value='+' class='qplus' field='quantity' /><p>175 G</p><p> 7</p><p>Endurance   </p></article>
+		  <article class="att1"><input type='button' value='+' class='qplus' id="qplus_str" field='quantity' /><p id="gold_for_str"></p><p id="points_for_str"></p><p>Strength    </p></article>
+            <input type="hidden" id="strength_price" />
+		  <article class="att1"><input type='button' value='+' class='qplus' id="qplus_dex" field='quantity' /><p id="gold_for_dex"></p><p id="points_for_dex"> </p><p>Dexterity   </p></article>
+		  <article class="att1"><input type='button' value='+' class='qplus' id="qplus_int" field='quantity' /><p id="gold_for_int"></p><p id="points_for_int"> </p><p>Intelligence</p></article>
+		  <article class="att1"><input type='button' value='+' class='qplus' id="qplus_sta" field='quantity' /><p id="gold_for_sta"></p><p id="points_for_sta"></p><p>Stamina     </p></article>
+		  <article class="att1"><input type='button' value='+' class='qplus' id="qplus_end" field='quantity' /><p id="gold_for_end"></p><p id="points_for_end"> </p><p>Endurance   </p></article>
 		</article>
 	</section>
 	
@@ -186,5 +342,16 @@
 <p> TOBA - All Rights Reserved </p>
 </footer>
 </body>
-
+<script type="text/javascript">
+		
+		var profile = JSON.parse(localStorage.getItem("profile"));
+		var x=profile[0];
+		//alert(x.viata.toString());
+			document.getElementById("viata").innerHTML = x.viata;
+			document.getElementById("nivel").innerHTML = x.nivel;
+			document.getElementById("bani").innerHTML = x.bani;
+			document.getElementById("energie").innerHTML = x.energie;
+			document.getElementById("rasa").innerHTML = x.rasa;
+			
+      </script>
 </html>

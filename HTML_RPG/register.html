@@ -6,6 +6,31 @@
 <link rel="stylesheet" type="text/css" href="normalize.css">
 <meta charset="UTF-8">
 <title>World Hellshout</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
+<script type="text/javascript">
+		
+       var datbase = JSON.parse(localStorage.getItem("datbase"));
+	   if(datbase==null)
+	   datbase=[];
+		
+	   $( document ).ready(function() {
+         $("#buton1").click( function(){
+		  
+		   var obj={user:$("#userreg").val(), password:$("#passreg").val(),email:$("#emailreg").val()};
+		   datbase[datbase.length] =obj;
+		   localStorage.setItem('datbase', JSON.stringify(datbase));
+		   
+		    var profile = JSON.parse(localStorage.getItem("profile"));
+			if(profile==null)
+			profile=[];
+			var objj={user:$("#userreg").val(),viata:10,bani:100,nivel:1,energie:10,rasa:"necunoscut",putere:1,dexteritate:1,inteligenta:1,stamina:1,rezistenta:1};
+		    profile[profile.length] =objj;
+			localStorage.setItem('profile', JSON.stringify(profile));
+		  });
+            });
+      </script>
+       
 </head>
 
 <body>
@@ -18,14 +43,14 @@
 	<article class="formregister">
 		<h1 >Register</h1>
 		<form method="post" action="#">
-			<input class="input_width" type="text" placeholder="username"></br><br>
-			<input class="input_width" type="password" placeholder="password" ></br></br>
-			<input class="input_width" type="text" placeholder="email">
+			<input class="input_width" id="userreg" type="text" placeholder="username"></br><br>
+			<input class="input_width" id="passreg" type="password" placeholder="password" ></br></br>
+			<input class="input_width" id="emailreg" type="text" placeholder="email">
 	</article>
 			<article class="buttons">	
 					
 				
-			<input type="button"  id="buton1" value="Register !" style="float:right;" />
+			<input type="button"   id="buton1" value="Register !" style="float:right;" />
 			
 			</article>
 		</form>
@@ -33,7 +58,7 @@
 
 <section class="images">	 
 	<a href="https://www.facebook.com"><img src="images/facebook.png" height="60" width="60" align="left" ></a>
-	 <img src="images/twitter.png" height="60" width="60" align="right" >
+
 	  <article id="content" align="center">
 	 <img src="images/google.png" height="60" width="60" align="center " style="margin-left:15%;">
 	 </article>

@@ -6,9 +6,110 @@
 <link rel="stylesheet" type="text/css" href="normalize.css">
 <meta charset="UTF-8">
 <title>World Hellshout</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
+<script type="text/javascript">
+		var test=0;
+		var creaturelist=[];
+		var creature1={name:"Wolf",life:5,spell1:"Bite",spell2:"Howl",spell3:"Hexproof",spell4:"Rapid Bite"};
+		var creature2={name:"Goblin",life:10,spell1:"Cleave",spell2:"Leap",spell3:"FireSlinger",spell4:"Terror Scream"};
+		var creature3={name:"Troll",life:15,spell1:"Bash",spell2:"Throw",spell3:"Bloodrush",spell4:"Smash!"};
+		var creature4={name:"Eagle",life:20,spell1:"Claw",spell2:"Pierce Shot",spell3:"Infinite sky",spell4:"Thunder Strike"};
+		var creature5={name:"Dragon",life:30,spell1:"Wing Beat",spell2:"Fireball",spell3:"Rejuvenation",spell4:"Eternal Fire"};
+		creaturelist[0]=creature1; creaturelist[1]=creature2; creaturelist[2]=creature3; creaturelist[3]=creature4; creaturelist[4]=creature5;
+		localStorage.setItem('creaturelist', JSON.stringify(creaturelist));
+    
+        var rasalist=[];
+        var mayan={name:"mayan",spell:"totem",img:"images/mayan.jpg"};
+		var aztec ={name:"aztec",spell:"totem",img:"images/aztec.jpg"};
+		var hun={name:"hun",spell:"totem",img:"images/hun.jpg"};
+		var roman={name:"roman",spell:"totem",img:"images/roman.jpg"};
+		var egyptian={name:"egyptian",spell:"totem",img:"images/egipt.jpg"};
+		var viking={name:"viking",spell:"totem",img:"images/viking.jpg"};
+		var samurai={name:"samurai",spell:"totem",img:"images/samurai.jpg"};
+		var crusader={name:"crusader",spell:"totem",img:"images/crusader.jpg"};
+		
+        rasalist[0]=mayan; rasalist[1]=aztec;  rasalist[2]=hun;  rasalist[3]=roman;  rasalist[4]=egyptian;  rasalist[5]=viking;  rasalist[6]=samurai;  rasalist[7]=crusader;  
+        localStorage.setItem('rasalist', JSON.stringify(rasalist));
+        var fightenemy=[];
+		
+		var enemies=[];
+		var enemy2={name:"Goblin",img:"images/goblin.jpg"};
+		var enemy3={name:"Troll",img:"images/troll.jpg"};
+		var enemy4={name:"Eagle",img:"images/eagle.jpg"};
+		var enemy5={name:"Dragon",img:"images/dragon.jpg"};
+		enemies[0]=enemy2; enemies[1]=enemy3; enemies[2]=enemy4; enemies[3]=enemy5; 
+		localStorage.setItem('enemies', JSON.stringify(enemies));
+		
+        var pret_attr={pret:10};
+        localStorage.setItem('pret_attr', JSON.stringify(pret_attr));
+		
+		var datbase = JSON.parse(localStorage.getItem("datbase"));
+		var contor=0;
+		$( document ).ready(function() {
+         $("#login").click( function(){
+		 for(index = 0; index < datbase.length; index++) {
+			 var x = datbase[index];
+             if($("#user").val() ==x.user && $("#pass").val() ==x.password)
+                contor=contor+1;
+		  }
+		  if(contor>0){
+		       
+               var loggedin = JSON.parse(localStorage.getItem("loggedin"));
+               if(loggedin==null){
+                loggedin=[];
+                loggedin[0]=$("#user").val();
+               }
+
+              for(index = 0; index < loggedin.length; index++) {
+                  //alert(index);
+                  var loggedin_var = loggedin[index];
+                  if(loggedin_var==$("#user").val())
+                      test=1;
+                  if(test==0){
+                    loggedin[loggedin.length]=$("#user").val();
+                  }
+              }
+              localStorage.setItem('loggedin', JSON.stringify(loggedin));
+              
+              
+              
+              
+              
+              
+              var profile = JSON.parse(localStorage.getItem("profile"));
+              
+              for(index = 0; index < profile.length; index++) {
+                  var profile_var=profile[index];
+                  if(profile_var.user==$("#user").val())
+                      if(profile_var.rasa=='necunoscut')
+                          window.location.href = "race.html";
+                          else
+                              window.location.href = "profil.html";
+              }
+              
+              
+            }
+		  else
+		  alert("you can not enter here dude");
+		   });
+		   
+		   
+		   $("#buton1").click( function(){
+		     
+              window.location.href = "register.html";
+              
+		   });
+            });
+			
+			
+			
+      </script>
 </head>
 
 <body>
+	 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+  </fb:login-button>
 
 <header>
 <h1>World Hellshout</h1>
@@ -17,28 +118,28 @@
 	<section class="homeform">
 		<article class="form">
 			<form method="post" action="#">
-				<input class="input_width" type="text" placeholder="username"></br><br>
-				<input class="input_width" type="password" placeholder="password" ></br></br></br>
-			</form>	
+				<input class="input_width" type="text" placeholder="username" id="user"></br><br>
+				<input class="input_width" type="password" placeholder="password" id="pass" ></br></br></br>
+				
 		</article>
 		<article class="buttons">	
 				
-			<input type="button" id="buton2" value="Log In!"/>			
+			<input type="button" id="login" value="Log In!"/>			
 			<input type="button"  id="buton1" value="Register !" style="float:right;" />
 			
 		</article>
-		
+		      </form>
 	</section>
 
 <nav class="images">	 
 	<a href="https://www.facebook.com"><img src="images/facebook.png" height="60" width="60" align="left" ></a>
-		<img src="images/twitter.png" height="60" width="60" align="right" >
+		
 				<article id="content" align="center" >
 					<img src="images/google.png" height="60" width="60" align="center" style="margin-left:15%;">
 				</article>
 </nav>
 
-	
+
 
 </body>
 </html>

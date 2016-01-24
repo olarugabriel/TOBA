@@ -3,6 +3,31 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/normalize.css">
 <title> World Hellshout</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+ var loggedin = JSON.parse(localStorage.getItem("loggedin"));
+          if(loggedin[0]!=null)
+              var user = loggedin[0];
+ 
+ var profile = JSON.parse(localStorage.getItem("profile"));
+              for(index = 0; index < profile.length; index++) {
+                  var profile_var=profile[index];
+                  if(profile_var.user==user)
+                      var rasa=profile[index].rasa;
+					 } 
+					  
+var rasalist = JSON.parse(localStorage.getItem("rasalist"));
+              for(index = 0; index < rasalist.length; index++) {
+                      if(rasalist[index].name==rasa){
+                          var img=rasalist[index].img;
+                      }
+              }
+              $(".avatar_c").attr("src",img);
+
+			  });
+</script>
+
 </head>
 
 <body>
@@ -18,7 +43,7 @@
 					</article>
 				
 					<article class="stats-t">
-						<p>200/250</p>
+						<p id="viata"></p>
 					</article>
 
 				</article>
@@ -28,7 +53,7 @@
 					</article>
 					
 					<article class="stats-t">
-						<p>2500</p>
+						<p id="bani"></></p>
 					</article>
 				
 				</article>
@@ -53,7 +78,7 @@
 					</article>
 					
 					<article class="stats-t">
-						<p>Level 5 75%</p>
+						<p  id="nivel"></></p>
 					</article>				
 				
 				</article>
@@ -65,7 +90,7 @@
 					</article>
 					
 					<article class="stats-t">
-						<p>2/12</p>
+						<p  id="energie"></></p>
 					</article>				
 				
 				</article>
@@ -77,7 +102,7 @@
 					</article>
 					
 					<article class="stats-t">
-						<p>Mayan</p>
+						<p  id="rasa"></></p>
 					</article>
 					
 				</article>
@@ -88,16 +113,13 @@
 <main id="big">	
 
 	<aside id="sider">
-		<article id="clasa">
-		</article>
+		<article id="clasa"><img class="avatar_c" src="" /></article>
 		<nav class="menu">
-			<ul>
-				<li><a href="default.asp">Home</a></li>
-				<li><a href="news.asp">Profile</a></li>
-				<li><a href="contact.asp">Quest</a></li>
-				<li><a href="about.asp">Explore</a></li>
-				<li><a href="about.asp">Account</a></li>
-				<li><a href="about.asp">Log Out</a></li>
+			<ul>		
+				<li><a href="profil.html">Profile</a></li>
+				<li><a href="quest.html">Quest</a></li>
+				<li><a href="explore.html">Explore</a></li>
+				<li><a id="logout" href="#">Log Out</a></li>
 			</ul> 
 		</nav>
 	</aside>
@@ -114,10 +136,10 @@
                  <section id="stats_fight_left">
 					<section id="stats_left_from_left">
 						<ul>
-                            <li><p><img class="img_fight" src="res/face.png">Battle Cry</p></li>
-                            <li><p><img class="img_fight" src="res/fire.png">Spit Fire</p></li>
-                            <li><p><img class="img_fight" src="res/drop.png">Eviscerate</p></li>
-                            <li><p><img class="img_fight" src="res/poison.png">Mayan Curse</p></li>
+                            <li><p id="spell1"><img class="img_fight" src="res/face.png">Battle Cry</p></li>
+                            <li><p id="spell2"><img class="img_fight" src="res/fire.png">Spit Fire</p></li>
+                            <li><p id="spell3"><img class="img_fight" src="res/drop.png">Eviscerate</p></li>
+                            <li><p id="spell4"><img class="img_fight" src="res/poison.png">Mayan Curse</p></li>
 						</ul>
 					</section>
 					<section id="stats_right_from_left">
@@ -136,7 +158,7 @@
 
 			<section id="section_right">
 					<section id="avatar_right">
-                        <h1>Wolf</h1>
+                        <h1 id="name_of_enemy">Wolf</h1>
  <progress value="40" max="100"></progress>
 							     <img class="poza_avatar" id="figt_poza_right" src="res/lup.jpg" />
                  
@@ -153,10 +175,10 @@
 						</section>
 						<section id="stats_right">
 							<ul>
-                                <li><p><img class="img_fight"  src="res/drop.png">Bite</p></li>
-                                <li><p><img class="img_fight"  src="res/face.png">Howl</p></li>
-                                <li><p><img class="img_fight"  src="res/drop.png">Scratch</p></li>
-                                <li><p></p><img class="img_fight"  src="res/poison.png">Rabid Bite</p></li>
+                                <li><p id="espell1"><img class="img_fight"  src="res/drop.png"></p></li>
+                                <li><p id="espell2"><img class="img_fight"  src="res/face.png"></p></li>
+                                <li><p id="espell3"><img class="img_fight"  src="res/drop.png"></p></li>
+                                <li><p id="espell4"><img class="img_fight"  src="res/poison.png"></p></li>
 						</ul>
 						</section>
 
@@ -174,5 +196,25 @@
 	</section>
 </main>
 </body>
+<script type="text/javascript">
 
+		var dd = JSON.parse(localStorage.getItem("atribute_inamic"));
+		var profile = JSON.parse(localStorage.getItem("profile"));
+		var creature = JSON.parse(localStorage.getItem("creaturelist"));
+		var x=profile[0];
+		var y=creature[0];
+		//alert(x.viata.toString());
+			document.getElementById("viata").innerHTML = x.viata;
+			document.getElementById("nivel").innerHTML = x.nivel;
+			document.getElementById("bani").innerHTML = x.bani;
+			document.getElementById("energie").innerHTML = x.energie;
+			document.getElementById("rasa").innerHTML = x.rasa;
+		
+			document.getElementById("espell1").innerHTML = dd[0].spell1;
+			document.getElementById("espell2").innerHTML = dd[1].spell2;
+			document.getElementById("espell3").innerHTML = dd[2].spell3;
+			document.getElementById("espell4").innerHTML = dd[3].spell4;
+			document.getElementById("name_of_enemy").innerHTML = JSON.parse(localStorage.getItem("fightenemy"));
+			 $("#figt_poza_right").attr("src", dd[4].imgsrc);
+      </script>
 </html>

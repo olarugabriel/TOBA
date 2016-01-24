@@ -18,7 +18,7 @@
 					</article>
 				
 					<article class="stats-t">
-						<p>200/250</p>
+						<p id="viata"></p>
 					</article>
 
 				</article>
@@ -28,7 +28,7 @@
 					</article>
 					
 					<article class="stats-t">
-						<p>2500</p>
+						<p id="bani"></></p>
 					</article>
 				
 				</article>
@@ -53,7 +53,7 @@
 					</article>
 					
 					<article class="stats-t">
-						<p>Level 5 75%</p>
+						<p  id="nivel"></></p>
 					</article>				
 				
 				</article>
@@ -65,7 +65,7 @@
 					</article>
 					
 					<article class="stats-t">
-						<p>2/12</p>
+						<p  id="energie"></></p>
 					</article>				
 				
 				</article>
@@ -77,7 +77,7 @@
 					</article>
 					
 					<article class="stats-t">
-						<p>Mayan</p>
+						<p  id="rasa"></></p>
 					</article>
 					
 				</article>
@@ -91,12 +91,10 @@
 		<article id="clasa">
 		</article>
 		<nav class="menu">
-			<ul>
-				<li><a href="default.asp">Home</a></li>
-				<li><a href="news.asp">Profile</a></li>
-				<li><a href="contact.asp">Quest</a></li>
-				<li><a href="about.asp">Explore</a></li>
-				<li><a href="about.asp">Account</a></li>
+			<ul>		
+				<li><a href="profil.html">Profile</a></li>
+				<li><a href="quest.html">Quest</a></li>
+				<li><a href="explore.html">Explore</a></li>
 				<li><a href="about.asp">Log Out</a></li>
 			</ul> 
 		</nav>
@@ -145,5 +143,16 @@
 	</section>
 </main>
 </body>
-
+<script type="text/javascript">
+		
+		var profile = JSON.parse(localStorage.getItem("profile"));
+		var x=profile[0];
+		//alert(x.viata.toString());
+			document.getElementById("viata").innerHTML = x.viata;
+			document.getElementById("nivel").innerHTML = x.nivel;
+			document.getElementById("bani").innerHTML = x.bani;
+			document.getElementById("energie").innerHTML = x.energie;
+			document.getElementById("rasa").innerHTML = x.rasa;
+			
+      </script>
 </html>
