@@ -1,0 +1,568 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/style_800.css">
+     <!-- Bootstrap core CSS -->
+<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/style_480.css">
+<title> World Hellshout</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/level.js"></script>
+<script>
+	$(document).ready(function(){
+ var loggedin = JSON.parse(localStorage.getItem("loggedin"));
+          if(loggedin[0]!=null)
+              var user = loggedin[0];
+ 
+ var profile = JSON.parse(localStorage.getItem("profile"));
+              for(index = 0; index < profile.length; index++) {
+                  var profile_var=profile[index];
+                  if(profile_var.user==user)
+                      var rasa=profile[index].rasa;
+					 } 
+					  
+var rasalist = JSON.parse(localStorage.getItem("rasalist"));
+              for(index = 0; index < rasalist.length; index++) {
+                      if(rasalist[index].name==rasa){
+                          var img=rasalist[index].img;
+						  
+                      }
+              }
+              $(".avatar_c").attr("src",img);
+
+			  
+			 
+			  $("#spell1").mouseover(function(){
+				$("#spell1").css("cursor", "pointer");
+			  });
+			  $("#spell2").mouseover(function(){
+				$("#spell2").css("cursor", "pointer");
+			  });
+			  $("#spell3").mouseover(function(){
+				$("#spell3").css("cursor", "pointer");
+			  });
+			  $("#spell4").mouseover(function(){
+				$("#spell4").css("cursor", "pointer");
+			  });
+			  
+			  
+			  $("#logout").click(function(){
+             var loggedin = JSON.parse(localStorage.getItem("loggedin"));
+                  if(loggedin[0]!=null){
+                      loggedin=null;
+                      localStorage.setItem('loggedin', JSON.stringify(loggedin));
+                      window.location.href = "home.html";
+                  }
+         });
+			  
+			  });
+</script>
+
+</head>
+
+<body>
+<img src="res/bkgr.jpg" id="backgr">
+<header>
+<h1>WORLD HELLSHOUT</h1>
+</header>
+<section id="banner">
+		<article id="top">
+				<article class="stats">
+					<article class="stats-i">
+						<img src="res/heart.png" id="icon">
+					</article>
+				
+					<article class="stats-t">
+						<p id="viata"></p>
+					</article>
+
+				</article>
+				<article class="stats">
+					<article class="stats-i">
+						<img src="res/coin.png" id="icon">
+					</article>
+					
+					<article class="stats-t">
+						<p id="bani"></></p>
+					</article>
+				
+				</article>
+				<article class="stats">
+					
+					<article class="stats-i">
+						<img src="res/world.png" id="icon">
+					</article>
+					
+					<article class="stats-t">
+						<p>Dark Castle</p>
+					</article>
+				
+				</article>
+		</article>
+		
+		<article id="bottom">
+				<article class="stats">
+					
+					<article class="stats-i">
+						<img src="res/libra.png" id="icon">
+					</article>
+					
+					<article class="stats-t">
+						<p  id="nivel"></></p>
+					</article>				
+				
+				</article>
+				
+				<article class="stats">
+					
+					<article class="stats-i">
+						<img src="res/energy.png" id="icon">
+					</article>
+					
+					<article class="stats-t">
+						<p  id="energie"></></p>
+					</article>				
+				
+				</article>
+			
+				<article class="stats">
+					
+					<article class="stats-i"> 
+						<img src="res/user.png" id="icon">
+					</article>
+					
+					<article class="stats-t">
+						<p  id="rasa"></></p>
+					</article>
+					
+				</article>
+		
+		</article>
+		
+</section>
+<main id="big">	
+
+	<aside id="sider">
+		<article id="clasa"><img class="avatar_c" src="" /></article>
+		<nav class="menu">
+			<ul>		
+				<li><a href="profil.html">Profile</a></li>
+				<li><a href="quest.html">Quest</a></li>
+				<li><a href="explore.html">Explore</a></li>
+				<li><a id="logout" href="#">Log Out</a></li>
+			</ul> 
+		</nav>
+	</aside>
+     <aside id="sider_small">
+         <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <p id="menu_text">Menu</p>
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+             <li><a href="profil.html">Profile</a></li>
+				<li><a href="quest.html">Quest</a></li>
+				<li><a href="explore.html">Explore</a></li>
+				<li><a href="about.asp">Log Out</a></li>
+            </ul>
+            
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+         
+
+    </aside>
+     <aside id="info">
+         <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar2" aria-expanded="false" aria-controls="navbar">
+                <p id="menu_text">Info</p>
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div id="navbar2" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+             <li role="presentation" class="active">Home <span class="badge">42</span></li>
+			 <li role="presentation" class="active">Coin <span class="badge">20</span></li>
+                <li role="presentation" class="active">World <span class="badge">Romania</span></li>
+			 <li role="presentation" class="active">Nivel <span class="badge">3lvl</span></li>
+            <li role="presentation" class="active">Energie <span class="badge">80%</span></li>
+			 
+
+            </ul>
+            
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+    </aside>
+    
+	<section id="main">
+        <section id="content_fight">
+	     <section id="section_fight">
+             <section id="section_left">
+	     	     <section id="avatar_left">
+					<h1 id="humanid">Ariton Andrei</h1>
+              
+					   <img  class="poza_avatar" id="fight_poza_left" src="res/andrei.jpg" />
+              
+					<progress id="humanhealth" value="100" max="300"></progress>
+                </section>
+                 <section id="stats_fight_left">
+					<section id="stats_left_from_left">
+						<ul>
+                            <li><p id="spell1"><img class="img_fight" >Battle Cry</p></li>
+                            <li><p id="spell2"><img class="img_fight" >Spit Fire</p></li>
+                            <li><p id="spell3"><img class="img_fight" >Eviscerate</p></li>
+                            <li><p id="spell4"><img class="img_fight" >ULTIMATA</p></li>
+						</ul>
+					</section>
+					<section id="stats_right_from_left">
+					 
+					</section>
+
+			</section>
+             </section>
+             <section id="section_center">
+			     <h1 id="versus">VS</h1>
+			</section>
+
+			<section id="section_right">
+					<section id="avatar_right">
+                        <h1 id="name_of_enemy">Wolf</h1>
+ <progress id="enemyhealth" value="80" max="200"></progress>
+							     <img class="poza_avatar" id="figt_poza_right" src="res/lup.jpg" />
+                 
+							
+					</section>
+					<section id="stats_fight_right">
+
+						<section id="stats_left">
+							
+						</section>
+						<section id="stats_right">
+							<ul>
+                                <li><p id="espell1"><img class="img_fight"  src="res/drop.png"></p></li>
+                                <li><p id="espell2"><img class="img_fight"  src="res/face.png"></p></li>
+                                <li><p id="espell3"><img class="img_fight"  src="res/drop.png"></p></li>
+                                <li><p id="espell4"><img class="img_fight"  src="res/poison.png"></p></li>
+						</ul>
+						</section>
+
+					</section>
+
+
+			</section>
+			<section id="console">
+				<p id="enemychat"></p>
+				<p id="humanchat"></p>
+			</section>
+            </section>
+	     </section>
+        
+        <section id="content_fight_mobile" >
+             <section id="section_left">
+                     <section id="avatar_left">
+                        <h1>Ariton Andrei</h1>
+                            <h1 id="versus">VS</h1>
+                            <h1 id="name_of_enemy">Wolf</h1>
+                           <img  class="poza_avatar" id="fight_poza_left" src="res/andrei.jpg" />
+
+                        <progress value="80" max="100"></progress>
+                    </section>
+                     <section id="stats_fight_left">
+                        <section id="stats_left_from_left">
+                            <ul>
+                                <li><p id="spell1"><img class="img_fight" src="res/face.png">Battle Cry</p></li>
+                                <li><p id="spell2"><img class="img_fight" src="res/fire.png">Spit Fire</p></li>
+                                <li><p id="spell3"><img class="img_fight" src="res/drop.png">Eviscerate</p></li>
+                                <li><p id="spell4"><img class="img_fight" src="res/poison.png">Mayan Curse</p></li>
+                            </ul>
+                        </section>
+                        <section id="stats_right_from_left">
+                           <ul>
+                               <li><p><img class="img_fight" src="res/Military.png">25-27</p></li>
+                         
+                               <li><p><img class="img_fight" src="res/medicine.png">350</p></li>
+                            </ul>
+                        </section>
+
+                    </section>
+                 
+                 
+                 
+                     <section id="stats_fight_left_480">
+                        <section id="stats_mobile">
+                              <nav class="navbar navbar-default">
+                                <div class="container-fluid">
+                                  <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#spels" aria-expanded="false" aria-controls="navbar">
+                                        <p id="menu_text">Spels</p>
+                                      <span class="sr-only">Toggle navigation</span>
+                                      <span class="icon-bar"></span>
+                                      <span class="icon-bar"></span>
+                                      <span class="icon-bar"></span>
+                                    </button>
+                                  </div>
+                                  <div id="spels" class="navbar-collapse collapse">
+                                    <ul class="nav navbar-nav">
+                                        <li><p id="spell1"><img class="img_fight" src="res/face.png">Battle Cry</p></li>
+                                        <li><p id="spell2"><img class="img_fight" src="res/fire.png">Spit Fire</p></li>
+                                        <li><p id="spell3"><img class="img_fight" src="res/drop.png">Eviscerate</p></li>
+                                        <li><p id="spell4"><img class="img_fight" src="res/poison.png">Mayan Curse</p></li>
+
+                                    </ul>
+
+                                  </div><!--/.nav-collapse -->
+                                </div><!--/.container-fluid -->
+                                  <br >
+                                   <div class="container-fluid">
+                                  <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#stats" aria-expanded="false" aria-controls="navbar">
+                                        <p id="menu">Stats</p>
+                                      <span class="sr-only">Toggle navigation</span>
+                                      <span class="icon-bar"></span>
+                                      <span class="icon-bar"></span>
+                                      <span class="icon-bar"></span>
+                                    </button>
+                                  </div>
+                                  <div id="stats" class="navbar-collapse collapse">
+                                    <ul class="nav navbar-nav">
+                                      <li><p><img class="img_fight" src="res/Military.png">25-27</p></li>
+                                 
+                                   <li><p><img class="img_fight" src="res/medicine.png">350</p></li>
+                                    </ul>
+
+                                  </div><!--/.nav-collapse -->
+                                </div><!--/.container-fluid -->
+                              </nav>
+                            </section>
+
+                    </section>
+                 </section>
+            	<section id="console">
+				<p>Wolf used Scratch on Andrei dealing 10 damage and mde him to bleed for 2 turns(5 damage).</p>
+				<p>Ariton Andrei used Eviscerate on Wolf dealing 78 damage (CRITICAL).</p>
+			</section>
+        </section>
+        
+	</section>
+</main>
+      <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="bootstrap/docs/assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+<script type="text/javascript">
+
+		var dd = JSON.parse(localStorage.getItem("atribute_inamic"));
+		var loggedin = JSON.parse(localStorage.getItem("loggedin"));
+          if(loggedin[0]!=null)
+              var user = loggedin[0];
+		
+		var profile = JSON.parse(localStorage.getItem("profile"));
+              for(index = 0; index < profile.length; index++) {
+                  var profile_var=profile[index];
+                  if(profile_var.user==user)
+                      var rasa=profile[index].rasa;
+					  var dmg=profile[index].putere;
+					  var armura=profile[index].armura;
+					  var viata=profile[index].viata;
+					  var dex=profile[index].dexteritate;
+					  var intel=profile[index].inteligenta;
+					  var exp_var=profile[index].experienta;
+					 } 
+					 
+			var rasalist = JSON.parse(localStorage.getItem("rasalist"));
+              for(index = 0; index < rasalist.length; index++) {
+                      if(rasalist[index].name==rasa){
+                          var img=rasalist[index].img;
+						  var rasa_unic=rasalist[index].spell;
+                      }
+              }
+		
+		
+		var creature = JSON.parse(localStorage.getItem("creaturelist"));
+		 for(index = 0; index < creature.length; index++) {
+                      if(creature[index].name==JSON.parse(localStorage.getItem("fightenemy"))){
+					  var y=creature[index];
+					  }
+					  }
+		var x=profile[0];
+		
+		
+		
+		$("#enemyhealth").val(y.life);
+		
+		
+		$("#spell1").click( function(){
+		document.getElementById("humanchat").innerHTML=" &#8658; " + user + " a folosit " + $("#spell1").text()+ " pe " + y.name + " provocand " +Math.floor((Math.random() * dmg/2) + 1) + " daune" ;
+		var aux=$("#enemyhealth").val();
+		aux=aux-parseInt(dmg/2);
+		if(aux==0 || aux<0)
+		{ alert("ai invins");        
+			for(index = 0; index < profile.length; index++) {
+                  var profile_var=profile[index];
+                  if(profile_var.user==user)
+				  {
+				  profile[index].experienta=profile[index].experienta + profile[index].nivel *25;
+				  profile[index].bani=profile[index].bani+profile[index].nivel * 50;
+				  localStorage.setItem('profile', JSON.stringify(profile));
+				  }
+				  }
+		window.location.href = "profil.html";  
+
+		}
+		$("#enemyhealth").val(aux);
+		var number=Math.floor((Math.random() * 4) + 1);
+		document.getElementById("enemychat").innerHTML=" &#8658; " + y.name + " a folosit " + $("#espell"+number).text()+ " pe " + user + " provocand " + y.dmg + " daune" ;
+		var aux1=$("#humanhealth").val();
+		aux1=aux1-y.dmg;
+		if(aux1==0 || aux1<0)
+		{ alert("ai pierdut"); window.location.href = "profil.html"; }
+		$("#humanhealth").val(aux1);
+		
+		});
+		$("#spell2").click( function(){
+		document.getElementById("humanchat").innerHTML=" &#8658; " + user + " a folosit " + $("#spell2").text()+ " pe " + y.name + " provocand " + Math.floor((Math.random() * dex/2) + 1) + " daune" ;
+		var aux=$("#enemyhealth").val();
+		aux=aux-parseInt(dmg/2);
+		$("#enemyhealth").val(aux);
+		if(aux==0 || aux<0)
+		{ alert("ai invins"); 
+		
+		for(index = 0; index < profile.length; index++) {
+                  var profile_var=profile[index];
+                  if(profile_var.user==user)
+				  {
+				  profile[index].experienta=profile[index].experienta + profile[index].nivel *25;
+				  profile[index].bani=profile[index].bani+profile[index].nivel * 50;
+				  localStorage.setItem('profile', JSON.stringify(profile));
+				  }
+				  }
+		window.location.href = "profil.html"; }
+		var number=Math.floor((Math.random() * 4) + 1);
+		document.getElementById("enemychat").innerHTML=" &#8658; " + y.name + " a folosit " + $("#espell"+number).text()+ " pe " + user + " provocand " + y.dmg + " daune" ;
+		var aux1=$("#humanhealth").val();
+		aux1=aux1-y.dmg;
+		if(aux1==0 || aux1<0)
+		{ alert("ai pierdut"); 
+		for(index = 0; index < profile.length; index++) {
+                  var profile_var=profile[index];
+                  if(profile_var.user==user)
+				  {
+				  profile[index].experienta=profile[index].experienta + profile[index].nivel *15;
+				  profile[index].bani=profile[index].bani+profile[index].nivel * 25;
+				  localStorage.setItem('profile', JSON.stringify(profile));
+				  }
+				  }
+		window.location.href = "profil.html"; }
+		$("#humanhealth").val(aux1);
+		
+		});
+		$("#spell3").click( function(){
+		document.getElementById("humanchat").innerHTML=" &#8658; " + user + " a folosit " + $("#spell3").text()+ " pe " + y.name + " provocand " + Math.floor((Math.random() * intel/2) + 1) + " daune" ;
+		var aux=$("#enemyhealth").val();
+		aux=aux-parseInt(dmg/2);
+		$("#enemyhealth").val(aux);
+		if(aux==0 || aux<0)
+		{ alert("ai invins"); 
+		
+		for(index = 0; index < profile.length; index++) {
+                  var profile_var=profile[index];
+                  if(profile_var.user==user)
+				  {
+				  profile[index].experienta=profile[index].experienta + profile[index].nivel *25;
+				  profile[index].bani=profile[index].bani+profile[index].nivel * 50;
+				  localStorage.setItem('profile', JSON.stringify(profile));
+				  }
+				  }
+		window.location.href = "profil.html"; }
+		var number=Math.floor((Math.random() * 4) + 1);
+		document.getElementById("enemychat").innerHTML=" &#8658; " + y.name + " a folosit " + $("#espell"+number).text()+ " pe " + user + " provocand " + y.dmg + " daune" ;
+		var aux1=$("#humanhealth").val();
+		aux1=aux1-y.dmg;
+		if(aux1==0 || aux1<0)
+		{ alert("ai pierdut");
+for(index = 0; index < profile.length; index++) {
+                  var profile_var=profile[index];
+                  if(profile_var.user==user)
+				  {
+				  profile[index].experienta=profile[index].experienta + profile[index].nivel *15;
+				  profile[index].bani=profile[index].bani+profile[index].nivel * 25;
+				  localStorage.setItem('profile', JSON.stringify(profile));
+				  }
+				  }		window.location.href = "profil.html"; }
+		$("#humanhealth").val(aux1);
+		});
+		$("#spell4").click( function(){
+		document.getElementById("humanchat").innerHTML=" &#8658; " + user + " a folosit " + $("#spell4").text()+ " pe " + y.name + " provocand " + parseInt(dmg/2) + " daune" ;
+		var aux=$("#enemyhealth").val();
+		aux=aux-parseInt(dmg/2);
+		$("#enemyhealth").val(aux);
+		if(aux==0 || aux<0)
+		{ alert("ai invins"); 
+		
+		for(index = 0; index < profile.length; index++) {
+                  var profile_var=profile[index];
+                  if(profile_var.user==user)
+				  {
+				  profile[index].experienta=profile[index].experienta + profile[index].nivel *25;
+				  profile[index].bani=profile[index].bani+profile[index].nivel * 50;
+				  localStorage.setItem('profile', JSON.stringify(profile));
+				  }
+				  }
+		window.location.href = "profil.html"; }
+		var number=Math.floor((Math.random() * 4) + 1);
+		document.getElementById("enemychat").innerHTML=" &#8658; " + y.name + " a folosit " + $("#espell"+number).text()+ " pe " + user + " provocand " + y.dmg + " daune" ;
+		var aux1=$("#humanhealth").val();
+		aux1=aux1-y.dmg;
+		if(aux1==0 || aux1<0)
+		{ alert("ai pierdut");
+for(index = 0; index < profile.length; index++) {
+                  var profile_var=profile[index];
+                  if(profile_var.user==user)
+				  {
+				  profile[index].experienta=profile[index].experienta + profile[index].nivel *15;
+				  profile[index].bani=profile[index].bani+profile[index].nivel * 25;
+				  localStorage.setItem('profile', JSON.stringify(profile));
+				  }
+				  }
+		window.location.href = "profil.html"; }
+		$("#humanhealth").val(aux1);
+		});
+		
+		
+			document.getElementById("viata").innerHTML = x.viata;
+			document.getElementById("nivel").innerHTML = x.nivel;
+			document.getElementById("bani").innerHTML = x.bani;
+			document.getElementById("energie").innerHTML = x.energie;
+			document.getElementById("rasa").innerHTML = x.rasa;
+			
+			
+			document.getElementById("spell4").innerHTML = rasa_unic;
+			document.getElementById("humanid").innerHTML = user;
+			document.getElementById("espell1").innerHTML = dd[0].spell1;
+			document.getElementById("espell2").innerHTML = dd[1].spell2;
+			document.getElementById("espell3").innerHTML = dd[2].spell3;
+			document.getElementById("espell4").innerHTML = dd[3].spell4;
+			document.getElementById("name_of_enemy").innerHTML = JSON.parse(localStorage.getItem("fightenemy"));
+			 $("#figt_poza_right").attr("src", dd[4].imgsrc);
+      </script>
+</html>

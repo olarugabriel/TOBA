@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<link rel="stylesheet" type="text/css" href="css/style2.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+    
+<link rel="stylesheet" type="text/css" href="normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/style_480.css">
+    <link rel="stylesheet" type="text/css" href="css/style_800.css">
+         <!-- Bootstrap core CSS -->
+
+<meta charset="UTF-8">
+<title>World Hellshout</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
+<script>
+  $(document).ready(function(){
+      $("[class^=rasa-]").hide();
+      $(".rasa-mayan").show();
+      
+      $(".mayan-but").click( function(){
+          $("[class^=rasa-]").hide(300);
+          $(".rasa-mayan").show(300);
+          $('input[name=rasa_selectata]').val('mayan');
+      });
+      
+      $(".aztec-but").click( function(){
+          $("[class^=rasa-]").hide(300);
+          $(".rasa-aztec").show(300);
+          $('input[name=rasa_selectata]').val('aztec');
+      });
+      
+      $(".crusader-but").click( function(){
+          $("[class^=rasa-]").hide(300);
+          $(".rasa-crusader").show(300);
+          $('input[name=rasa_selectata]').val('crusader');
+      });
+      
+      $(".hun-but").click( function(){
+          $("[class^=rasa-]").hide(300);
+          $(".rasa-hun").show(300);
+          $('input[name=rasa_selectata]').val('hun');
+      });
+      
+      $(".samurai-but").click( function(){
+          $("[class^=rasa-]").hide(300);
+          $(".rasa-samurai").show(300);
+          $('input[name=rasa_selectata]').val('samurai');
+      });
+      
+      $(".viking-but").click( function(){
+          $("[class^=rasa-]").hide(300);
+          $(".rasa-viking").show(300);
+          $('input[name=rasa_selectata]').val('viking');
+      });
+      
+      $(".egyptian-but").click( function(){
+          $("[class^=rasa-]").hide(300);
+          $(".rasa-egyptian").show(300);
+          $('input[name=rasa_selectata]').val('egyptian');
+      });
+      
+      $(".roman-but").click( function(){
+          $("[class^=rasa-]").hide(300);
+          $(".rasa-roman").show(300);
+          $('input[name=rasa_selectata]').val('roman');
+      });
+      
+      $(".play").click( function(){
+          var loggedin = JSON.parse(localStorage.getItem("loggedin"));
+          if(loggedin[0]!=null){
+              var user = loggedin[0];
+              //alert(user);
+              var profile = JSON.parse(localStorage.getItem("profile"));
+              for(index = 0; index < profile.length; index++) {
+                  var profile_var=profile[index];
+                  if(profile_var.user==user)
+                      profile[index].rasa=$('input[name=rasa_selectata]').val();
+              }
+              localStorage.setItem('profile', JSON.stringify(profile));
+              window.location.href = "profil.html";
+          }
+      });
+  });
+</script>
+</head>
+
+<body>
+
+
+<header>
+<h1>World Hellshout</h1>
+</header>
+
+<main class="race">
+	<section class="racetop">
+
+
+<article class="rasa-mayan" align="center">
+    <article id="imagine-mars-la-stanga">
+        <img src="images/mayan.jpg" width=100% height=100%>
+    </article>
+    <article class="post-content">
+        <h3 class="post-title" align="center" style="color:white;">Mayan</h3>
+		<h4 style="color:white;">The Maya people are a group of Indigenous peoples of Mesoamerica. They inhabit southern Mexico, Guatemala, Belize, El Salvador and Honduras. The overarching term "Maya" is a collective designation to include the peoples of the region that share some degree of cultural and linguistic heritage; however, the term embraces many distinct populations, societies, and ethnic groups that each have their own particular traditions, cultures, and historical identity.
+ </br>
+Special Ability:   Curse</h4>
+ </article>
+            <article class="clearfix"></article>
+</article>
+    
+<article class="rasa-aztec" align="center">
+    <article id="imagine-mars-la-stanga">
+        <img src="images/aztec.jpg" width=100% height=100%>
+    </article>
+    <article class="post-content">
+        <h3 class="post-title" align="center" style="color:white;">Aztec</h3>
+		<h4 style="color:white;">The Mexica Aztec Empire or the Triple Alliance  began as an alliance of three Nahua "altepetl" city-states: Mexico-Tenochtitlan, Texcoco, and Tlacopan. These three city-states ruled the area in and around the Valley of Mexico  until they were defeated by the combined forces of the Spanish conquistadores and their native allies under Hernán Cortés . </br>
+Special Ability:   Poison Spread</h4>
+ </article>
+            <article class="clearfix"></article>
+</article>
+    
+<article class="rasa-crusader" align="center">
+    <article id="imagine-mars-la-stanga">
+        <img src="images/crusader.jpg" width=100% height=100%>
+    </article>
+    <article class="post-content">
+        <h3 class="post-title" align="center" style="color:white;">Crusader</h3>
+		<h4 style="color:white;">The Crusades were a series of intermittent military campaigns sanctioned by various Popes in the Middle Ages. Byzantine Emperor Alexios I sent an ambassador from Constantinople to Pope Urban II in Italy requesting military support in the conflict with the eastward invading Turks. The Pope responded promptly by calling Catholic soldiers to join the First Crusade. The immediate goal was to guarantee pilgrims access to the holy sites in the Holy Land that were under Muslim control.</br>
+Special Ability:  Sacred Light</h4>
+ </article>
+            <article class="clearfix"></article>
+</article>
+    
+<article class="rasa-hun" align="center">
+    <article id="imagine-mars-la-stanga">
+        <img src="images/hun.jpg" width=100% height=100%>
+    </article>
+    <article class="post-content">
+        <h3 class="post-title" align="center" style="color:white;">Hun</h3>
+		<h4 style="color:white;">The Huns were a nomadic group of people who are known to have lived in Eastern Europe, the Caucasus, and Central Asia between the 1st century AD and the 7th century. They were first reported living east of the Volga River, in an area that was part of Scythia at the time; the Huns' arrival is associated with the migration westward of a Scythian people, the Alans.They were first mentioned as Hunnoi by Tacitus. In 91 AD, the Huns were said to be living near the Caspian Sea . </br>
+Special Ability:   Spectral Riders</h4>
+ </article>
+            <article class="clearfix"></article>
+</article>
+
+<article class="rasa-samurai" align="center">
+    <article id="imagine-mars-la-stanga">
+        <img src="images/samurai.jpg" width=100% height=100%>
+    </article>
+    <article class="post-content">
+        <h3 class="post-title" align="center" style="color:white;">Samurai</h3>
+		<h4 style="color:white;">
+		" They serve in close attendance to the nobility ".Samurai (侍) were the military-nobility and officer-caste of medieval and early-modern Japan.
+In Japanese, they are usually referred to as bushi (武士) or buke (武家).</br>
+Special Ability:   A Thousand Cuts</h4>
+ </article>
+            <article class="clearfix"></article>
+</article>
+
+<article class="rasa-viking" align="center">
+    <article id="imagine-mars-la-stanga">
+        <img src="images/viking.jpg" width=100% height=100%>
+    </article>
+    <article class="post-content">
+        <h3 class="post-title" align="center" style="color:white;">Viking</h3>
+		<h4 style="color:white;">Vikings (Norwegian and Danish: Vikinger; Swedish and Nynorsk: Vikingar; Icelandic: Víkingar), from Old Norse víkingr, were Germanic Norse seafarers, speaking the Old Norse language, who raided and traded from their Scandinavian homelands across wide areas of northern and central Europe, as well as European Russia, during the late 8th to late 11th centuries.</br>
+Special Ability:   Curse</h4>
+ </article>
+            <article class="clearfix"></article>
+</article>
+
+<article class="rasa-egyptian" align="center">
+    <article id="imagine-mars-la-stanga">
+        <img src="images/egipt.jpg" width=100% height=100%>
+    </article>
+    <article class="post-content">
+        <h3 class="post-title" align="center" style="color:white;">Egyptian</h3>
+		<h4 style="color:white;">Ancient Egypt was an ancient civilization of eastern North Africa, concentrated along the Northern reaches of the Nile River.
+Egypt thrived for thousands of years as an independent nation whose culture was famous for great cultural advances in every area of human knowledge, from the arts to science to technology and religion. The great monuments which Egypt is still celebrated for reflect the depth and grandeur of Egyptian culture which influenced so many ancient civilizations.
+ </br>
+Special Ability:  Ragnarok</h4>
+ </article>
+            <article class="clearfix"></article>
+</article>
+
+<article class="rasa-roman" align="center">
+    <article id="imagine-mars-la-stanga">
+        <img src="images/roman.jpg" width=100% height=100%>
+    </article>
+    <article class="post-content">
+        <h3 class="post-title" align="center" style="color:white;">Roman</h3>
+		<h4 style="color:white;">The Roman army (Latin: exercitus Romanus, literally: Roman Army; Ancient Greek: στρατός Ῥωμαίων, transcription: stratos Romaion) is a term encompassing the terrestrial armed forces deployed by the Roman Kingdom (to c. 500 BC), the Roman Republic (500–31 BC), the Roman Empire (31 BC – 395/476 AD) and its successor the East Roman or Byzantine Empire.</br>
+Special Ability:   Bloody Charge</h4>
+ </article>
+            <article class="clearfix"></article>
+</article>
+	
+	
+	<hr><hr>
+	<article class="racebot">
+
+	<h1 align="center" > CHOOSE YOUR DESTINY</h1>
+        <article id="oala-cu-butoane">
+            <input type="button" id="buton3" class="mayan-but" value="mayan">
+            <input type="button" id="buton3" class="aztec-but" value="aztec">
+            <input type="button" id="buton3" class="crusader-but" value="crusader">
+            <input type="button" id="buton3" class="hun-but" value="hun"></br>
+            <input type="button" id="buton3" class="samurai-but" value="samurai">
+            <input type="button" id="buton3" class="viking-but" value="viking">
+            <input type="button" id="buton3" class="egyptian-but" value="egyptian">
+            <input type="button" id="buton3" class="roman-but" value="roman">
+        </article>
+    
+
+
+        </aside>
+   
+            <input type="hidden" name="rasa_selectata" value="" />
+	</article>
+	<center><input type="button" class="play" id="buton1" value="Play!" style="margin-top: 50px;" /></center>
+	</section>
+
+
+</main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="bootstrap/docs/assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>

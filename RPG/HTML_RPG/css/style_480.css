@@ -1,0 +1,262 @@
+
+
+        @media (max-width:480px){
+            #content
+            {
+                display: none;
+            }
+            #conent_mobile
+            {
+                display: block;
+            }
+            #quest_buttons_mobile
+            {
+                display: block;
+                float: left;
+                margin: 0 auto;
+                width: 100%;
+                
+            }
+             #quest_req
+         {
+             width: 100%;
+             margin-left: 30%;
+         }
+            #quest_buttons
+            {
+                display: none;
+            }
+               .buttons
+               {
+                display: none;
+               }
+            #buton-special
+            {
+                display: block;
+                margin-left: 0px;
+            }
+               #buttons_mobile
+               {
+                  display: block;
+                  margin-bottom: 50px;
+
+
+               }
+
+              #login, #buton1
+               {
+                  background-color:rgb(120,63,4);
+                  border-color: black;
+                  box-shadow: 5px 5px  black;
+                  color:white;
+                  font-weight:bold;
+                  margin-left: 30%;
+
+               }
+
+                #social
+                {
+                  display: block;
+
+
+                }
+                #social img
+                {
+                    width:30px;
+                    height:30px;
+
+                }
+             .images ul
+            {
+                list-style: none;
+                margin-left: -5%;
+
+            }
+            #sider
+            {
+                display: none;
+            }
+                  #main{
+	position:relative;
+	float:right;
+	background-color: rgba(151,80,6,0.9);
+	height: auto;
+	width: 100%;
+	opacity: .99; 
+}
+              #main2
+         {
+             width: 100%;
+         }
+              #banner
+         {
+             display: none;
+         }
+            
+            #sider_small
+            {
+                display: block;
+            }
+            
+            #sider_small
+            {
+                background-color: rgba(151,80,6,0.9);
+            }
+            #info
+            {
+                background-color: rgba(151,80,6,0.9);
+            }
+            
+            #info
+            {
+                display: block;
+            }
+           #main2 h1
+         {
+             font-size: 100%;
+         }
+         #imagine-mars-la-stanga{
+        float: none;
+        width: 100%;
+        height: 100%;
+    }
+         .post-content{
+    float: none;
+    width: 100%;
+    height: auto;
+}
+          #oala-cu-butoane input
+         {
+             display:list-item;
+             margin: 0 auto;
+             width: 100%;
+         }
+              #oala-cu-butoane{
+        margin-left: 0px;
+        }
+                     #avatarQ{
+
+       display: none;
+}
+            .select_mobile
+            {
+                width: 100%;
+            }
+            #menu_train_mobile
+            {
+                display: block;
+            }
+            #menu_train_mobile
+            {
+                background-color: rgba(151,80,6,0.9);
+            }
+            #train{ 
+
+	float:none;
+	height:auto;
+	width: 100%;
+	margin-top:5%;  
+	background-color: #aa7839;
+	display: flex;
+	padding-top:5%;
+	padding-bottom:5%;
+	flex-direction: column;
+	justify-content: center;
+}
+              #content_fight
+            {
+             display: none;
+         }
+                #content_fight_mobile
+            {
+                display: block;
+                height: 100%;
+            }
+             #section_left {
+             float: none;
+             width: 100%;
+                 height: 100%;
+                 
+    
+            }
+            #stats_fight_left
+            {
+                display: none;
+            }
+            #stats_fight_left_480
+            {
+                display: block;
+            }
+            #stats_mobile
+            {
+
+
+  
+            }
+            #console
+            {
+                float: none;
+                height: 100%;
+
+            }
+            #stats_mobile li
+            {
+                float:right;
+            }
+
+
+
+
+
+
+
+
+}
+
+button {
+    
+}
+
+.navbar-toggle {
+    width: 100%;
+    height: 20px
+}
+
+#menu_text {
+    margin-top: -3px;
+}
+
+
+.list-group {
+
+}
+
+.list-group-item {
+    
+}
+
+.list-group-item {
+    background-color: rgba(151,80,6,0.9);
+    border-color: black;
+}
+
+#section_left {
+    
+}
+
+.dropdown {
+    width: 100%;
+}
+
+#dropdownMenu1 {
+    width: 100%;
+   
+}
+
+#dropdownMenu2 {
+    width: 100%;
+}
+
+.collapsed {
+    
+}

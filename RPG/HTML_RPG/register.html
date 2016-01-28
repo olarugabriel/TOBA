@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/style2.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/style_480.css">
+    <link rel="stylesheet" type="text/css" href="css/style_800.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src = "https://plus.google.com/js/client:platform.js" async defer></script>
+<meta charset="UTF-8">
+<title>World Hellshout</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/facebook.js"></script>
+    <script src="js/google.js"></script>
+<script type="text/javascript">
+		
+       var datbase = JSON.parse(localStorage.getItem("datbase"));
+	   if(datbase==null)
+	   datbase=[];
+		
+	   $( document ).ready(function() {
+         $("#buton1").click( function(){
+		  
+		   var obj={user:$("#userreg").val(), password:$("#passreg").val(),email:$("#emailreg").val()};
+		   datbase[datbase.length] =obj;
+		   localStorage.setItem('datbase', JSON.stringify(datbase));
+		   
+		    var profile = JSON.parse(localStorage.getItem("profile"));
+			if(profile==null)
+			profile=[];
+			var objj={user:$("#userreg").val(),viata:10,bani:100,nivel:1,energie:10,rasa:"necunoscut",putere:1,dexteritate:1,inteligenta:1,stamina:1,rezistenta:1,armura:0,harta:1,experienta:0,quest:0};
+		    profile[profile.length] =objj;
+			localStorage.setItem('profile', JSON.stringify(profile));
+			 window.location.href = "home.html";
+		  });
+            });
+      </script>
+       
+</head>
+
+<body>
+
+<header>
+<h1>World Hellshout</h1>
+</header>
+
+<section class="homeform">
+	<article class="formregister">
+		<h1 >Register</h1>
+		<form method="post" action="#">
+			<input class="input_width" id="userreg" type="text" placeholder="username"></br><br>
+			<input class="input_width" id="passreg" type="password" placeholder="password" ></br></br>
+			<input class="input_width" id="emailreg" type="text" placeholder="email">
+	</article>
+			<article class="buttons" id="buton-special">	
+					
+				
+			<input type="button"   id="buton1" value="Register !"  />
+			
+			</article>
+		</form>
+</section>
+
+<footer>
+    <nav class="images">
+        <ul>
+            <li><div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="false"></div></li>
+          <li><button class="g-signin" 
+              data-scope="https://www.googleapis.com/auth/plus.login"
+              data-clientid="695211210751-t22478duti26t4napt8ptoc7ntddb6s1.apps.googleusercontent.com"
+              data-callback="onSignInCallback"
+              data-theme="dark"
+              data-cookiepolicy="single_host_origin">
+              </button></li>
+        </ul>
+
+    </nav>
+</footer>
+
+</body>
+</html>

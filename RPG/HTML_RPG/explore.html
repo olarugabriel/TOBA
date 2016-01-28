@@ -1,0 +1,309 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/style_480.css">
+    <link rel="stylesheet" type="text/css" href="css/style_800.css">
+     <!-- Bootstrap core CSS -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<title> World Hellshout</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+ var loggedin = JSON.parse(localStorage.getItem("loggedin"));
+          if(loggedin[0]!=null)
+              var user = loggedin[0];
+ 
+ var profile = JSON.parse(localStorage.getItem("profile"));
+              for(index = 0; index < profile.length; index++) {
+                  var profile_var=profile[index];
+                  if(profile_var.user==user)
+                      var rasa=profile[index].rasa;
+					  var nivel=profile[index].nivel;
+					  var idmap=profile[index].harta;
+					 } 
+					  
+var rasalist = JSON.parse(localStorage.getItem("rasalist"));
+              for(index = 0; index < rasalist.length; index++) {
+                      if(rasalist[index].name==rasa){
+                          var img=rasalist[index].img;
+                      }
+              }
+              $(".avatar_c").attr("src",img);
+
+			  $("#zone1").click( function(){
+			  idmap=1;
+			 for(index = 0; index < profile.length; index++) {
+                  var profile_var=profile[index];
+                  if(profile_var.user==user)
+				  {
+				  profile[index].harta=1;
+				  }}
+				localStorage.setItem('profile', JSON.stringify(profile));
+			  window.location.href = "map2.html";
+			  });
+			  
+			  
+			  $("#zone2").click( function(){
+			  if(nivel>5)
+			  {
+			  window.location.href = "map2.html";
+			  			  			  idmap=2;
+			 for(index = 0; index < profile.length; index++) {
+                  var profile_var=profile[index];
+                  if(profile_var.user==user)
+				  {
+				  profile[index].harta=2;
+				 
+				  }
+				  }
+				localStorage.setItem('profile', JSON.stringify(profile));
+			  
+			  }
+			  else
+			  alert("Nu ai nivelul necesar.(Iti trebuie 6)");
+			  });
+			  
+			  $("#zone3").click( function(){
+			 if(nivel>10)
+			  window.location.href = "map2.html";
+			  else
+			  alert("Nu ai nivelul necesar.(Iti trebuie 11)");
+			  });
+			  
+			  $("#zone4").click( function(){
+			  if(nivel>15)
+			  window.location.href = "map2.html";
+			  else
+			  alert("Nu ai nivelul necesar.(Iti trebuie 16)");
+			  });
+			  
+			   $("#zone5").click( function(){
+			  if(nivel>20)
+			  window.location.href = "map2.html";
+			  else
+			  alert("Nu ai nivelul necesar.(Iti trebuie 21)");
+			  });
+			  
+			  $("#zone6").click( function(){
+			  if(nivel>25)
+			  window.location.href = "map2.html";
+			  else
+			  alert("Nu ai nivelul necesar.(Iti trebuie 26)");
+			  });
+			  
+			  $("#zone7").click( function(){
+			  if(nivel>30)
+			  window.location.href = "map2.html";
+			  else
+			  alert("Nu ai nivelul necesar.(Iti trebuie 31)");
+			  });
+			  
+			  $("#logout").click(function(){
+             var loggedin = JSON.parse(localStorage.getItem("loggedin"));
+                  if(loggedin[0]!=null){
+                      loggedin=null;
+                      localStorage.setItem('loggedin', JSON.stringify(loggedin));
+                      window.location.href = "home.html";
+                  }
+         });
+			  
+			  
+			  
+			  });
+			  
+			  
+</script>
+</head>
+
+<body>
+<img src="res/bkgr.jpg" id="backgr">
+<header>
+<h1>WORLD HELLSHOUT</h1>
+</header>
+<section id="banner">
+		<article id="top">
+				<article class="stats">
+					<article class="stats-i">
+						<img src="res/heart.png" id="icon">
+					</article>
+				
+					<article class="stats-t">
+						<p id="viata"></p>
+					</article>
+
+				</article>
+				<article class="stats">
+					<article class="stats-i">
+						<img src="res/coin.png" id="icon">
+					</article>
+					
+					<article class="stats-t">
+						<p id="bani"></></p>
+					</article>
+				
+				</article>
+				<article class="stats">
+					
+					<article class="stats-i">
+						<img src="res/world.png" id="icon">
+					</article>
+					
+					<article class="stats-t">
+						<p>Dark Castle</p>
+					</article>
+				
+				</article>
+		</article>
+		
+		<article id="bottom">
+				<article class="stats">
+					
+					<article class="stats-i">
+						<img src="res/libra.png" id="icon">
+					</article>
+					
+					<article class="stats-t">
+						<p  id="nivel"></></p>
+					</article>				
+				
+				</article>
+				
+				<article class="stats">
+					
+					<article class="stats-i">
+						<img src="res/energy.png" id="icon">
+					</article>
+					
+					<article class="stats-t">
+						<p  id="energie"></></p>
+					</article>				
+				
+				</article>
+			
+				<article class="stats">
+					
+					<article class="stats-i"> 
+						<img src="res/user.png" id="icon">
+					</article>
+					
+					<article class="stats-t">
+						<p  id="rasa"></></p>
+					</article>
+					
+				</article>
+		
+		</article>
+		
+</section>
+<main id="big">	
+
+	<aside id="sider">
+		<article id="clasa"><img class="avatar_c" src="" /></article>
+		<nav class="menu">
+			<ul>		
+				<li><a href="profil.html">Profile</a></li>
+				<li><a href="quest.html">Quest</a></li>
+				<li><a href="explore.html">Explore</a></li>
+				<li><a href="about.asp">Log Out</a></li>
+			</ul> 
+		</nav>
+	</aside>
+    <aside id="sider_small">
+         <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <p id="menu_text">Menu</p>
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+             <li><a href="profil.html">Profile</a></li>
+				<li><a href="quest.html">Quest</a></li>
+				<li><a href="explore.html">Explore</a></li>
+				<li><a href="about.asp">Log Out</a></li>
+            </ul>
+            
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+    </aside>
+    
+     <aside id="info">
+         <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar2" aria-expanded="false" aria-controls="navbar">
+                <p id="menu_text">Info</p>
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div id="navbar2" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+             <li role="presentation" class="active">Home <span class="badge">42</span></li>
+			 <li role="presentation" class="active">Coin <span class="badge">20</span></li>
+                <li role="presentation" class="active">World <span class="badge">Romania</span></li>
+			 <li role="presentation" class="active">Nivel <span class="badge">3lvl</span></li>
+            <li role="presentation" class="active">Energie <span class="badge">80%</span></li>
+			 <li role="presentation" class="active">Rasa <span class="badge">Matii</span></li>
+
+            </ul>
+            
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+    </aside>
+    
+	<section id="main">
+	     <figure>
+		 <map name="planetmap">
+	     	
+<img src="img/map.jpg" style="margin-left:15%;" alt="" usemap="#Map" />
+<map name="Map" id="Map">
+    <area id="zone1" alt="" title="" href="#" shape="poly" coords="67,107,37,126,28,146,19,174,28,209,22,237,18,252,17,286,25,316,35,309,29,290,25,264,27,254,36,248,50,250,71,258,91,278,117,273,120,293,136,304,157,288,170,287,193,309,212,330,242,345,260,338,248,302,260,283,272,261,250,229,188,203,162,172,170,155,180,130,169,108,142,127,131,118,95,122" />
+    <area id="zone2" alt="" title="" href="#" shape="poly" coords="177,35,230,35,401,32,469,34,500,56,536,49,562,50,548,71,531,112,510,151,491,172,472,184,456,185,404,229,380,210,365,218,362,244,349,255,325,227,316,210,284,202,280,214,231,201,206,181,202,139,203,118,184,75,169,47" />
+    <area id="zone3" alt="" title="" href="#" shape="poly" coords="545,108,560,125,562,155,557,181,559,197,589,202,631,221,628,240,616,249,617,270,629,296,624,326,619,353,605,387,593,466,588,478,584,444,584,426,574,411,552,401,525,378,489,339,480,329,480,308,489,296,514,298,507,282,502,266,497,222,513,184,524,161,543,148" />
+    <area id="zone4" alt="" title="" href="#" shape="poly" coords="463,430,534,449,557,471,577,523,564,579,535,627,507,674,461,699,427,706,456,668,448,608,454,553,426,513,430,460,451,434" />
+    <area id="zone5" alt="" title="" href="#" shape="poly" coords="316,310,331,340,333,368,357,373,342,393,314,399,291,403,294,418,330,421,348,432,383,442,386,462,366,486,363,505,379,497,373,531,371,551,341,547,309,555,287,544,258,517,249,504,257,484,274,467,269,432,263,410,275,378,293,341,309,314" />
+    <area id="zone6" alt="" title="" href="#" shape="poly" coords="71,334,91,345,111,317,138,330,146,360,186,378,201,406,193,452,183,484,164,528,153,565,141,589,120,613,97,625,85,639,103,649,147,658,171,681,152,695,122,698,73,690,48,668,30,643,66,621,103,603,114,564,85,519,58,473,31,438,30,397,13,353,44,340" />
+    <area id="zone7" alt="" title="" href="#" shape="poly" coords="229,580,283,594,322,618,347,653,389,658,415,686,379,699,314,687,279,681,189,697,175,670,189,641,208,599,201,590,225,579" />
+
+</map>
+
+	     	</figure>
+	     </map>
+        
+	</section>
+</main>
+      <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="bootstrap/docs/assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+<script type="text/javascript">
+		
+		var profile = JSON.parse(localStorage.getItem("profile"));
+		var x=profile[0];
+		//alert(x.viata.toString());
+			document.getElementById("viata").innerHTML = x.viata;
+			document.getElementById("nivel").innerHTML = x.nivel;
+			document.getElementById("bani").innerHTML = x.bani;
+			document.getElementById("energie").innerHTML = x.energie;
+			document.getElementById("rasa").innerHTML = x.rasa;
+			
+      </script>
+</html>

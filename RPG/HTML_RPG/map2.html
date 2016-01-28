@@ -1,0 +1,643 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/style2.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="css/style_480.css">
+    <link rel="stylesheet" type="text/css" href="css/style_800.css">
+     <!-- Bootstrap core CSS -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<title> World Hellshout</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
+<script>
+ $(document).ready(function(){
+var nivel=2;
+ var loggedin = JSON.parse(localStorage.getItem("loggedin"));
+          if(loggedin[0]!=null)
+              var user = loggedin[0];
+ 
+ var profile = JSON.parse(localStorage.getItem("profile"));
+              for(index = 0; index < profile.length; index++) {
+                  var profile_var=profile[index];
+                  if(profile_var.user==user)
+                      {
+					  var rasa=profile[index].rasa;
+					  nivel=profile[index].nivel;
+					  idmap=profile[index].harta;
+					  }
+
+					 } 
+				
+var rasalist = JSON.parse(localStorage.getItem("rasalist"));
+              for(index = 0; index < rasalist.length; index++) {
+                      if(rasalist[index].name==rasa){
+                          var img=rasalist[index].img;
+                      }
+              }
+              $(".avatar_c").attr("src",img);
+			 
+		var enemies = JSON.parse(localStorage.getItem("enemies"));	 
+		if(nivel%6>0 || nivel>0)
+			{
+			switch(idmap)
+			 {
+			 case 1:$("#image1").attr("src", enemies[9].img);break;
+			 case 2:$("#image1").attr("src", enemies[4].img);break;
+			 }
+			}		
+
+
+
+		if(nivel%6>1 || nivel>1 )
+			{
+			switch(idmap)
+			 {
+			 case 1:$("#image2").attr("src", enemies[0].img);break;
+			 case 2:
+			 if(nivel>5)
+			 $("#image2").attr("src", enemies[5].img);break;
+			 }
+			}
+			 
+			 if(nivel%6>2 || nivel>2)
+			{
+			switch(idmap)
+			 {
+				case 1: $("#image3").attr("src", enemies[1].img);break;
+				case 2: 
+				if(nivel>6)
+				$("#image3").attr("src", enemies[6].img);break;
+			 }
+			}
+			 if(nivel%6>3 || nivel>3)
+			{
+			switch(idmap)
+			 {
+				case 1: $("#image4").attr("src", enemies[2].img);break;
+				case 2: 
+				if(nivel>7)
+				$("#image4").attr("src", enemies[7].img);break;
+			}
+			}
+			  if(nivel%6>4 || nivel>4)
+			{
+			switch(idmap)
+			 {
+				case 1:$("#image5").attr("src", enemies[3].img);break;
+				case 2:
+				if(nivel>8)
+				$("#image5").attr("src", enemies[8].img);break;
+				}
+			}
+			 
+			 
+			  $("#image1").click( function(){	 
+			  
+		 if(nivel%6>0 || nivel>0)
+			{
+			switch(idmap)
+			 {
+			case 1:	$(this).attr("src", "img/lup.jpg");
+				$("#main_enemy").attr("src","img/lup.jpg");break;
+			case 2:	$(this).attr("src", "images/earth_gol.jpg");
+				$("#main_enemy").attr("src","images/earth_gol.jpg");break;
+				}
+			}
+		
+});	
+			 
+		  $("#image2").click( function(){	 
+		 if(nivel%6>1||nivel>1)
+			{
+				switch(idmap)
+			 {
+			case 1:	$(this).attr("src", enemies[0].img);
+			 $("#main_enemy").attr("src",enemies[0].img);break;
+			 case 2:
+			 if(nivel>5){
+			 $(this).attr("src", enemies[5].img);
+			 $("#main_enemy").attr("src",enemies[5].img);
+			 }
+			 else
+			 $(this).attr("src","res/q.jpg");
+			 break;
+			 }
+			// document.getElementById("#text_enemy").innerHTML = enemies[0].name;
+			}
+		else
+			$(this).attr("src","res/q.jpg");
+});	
+		   
+		  $("#image3").click( function(){	 
+		 if(nivel%6>2||nivel>2)
+			{
+					switch(idmap)
+			 {
+			case 1: $(this).attr("src", enemies[1].img);
+			 $("#main_enemy").attr("src",enemies[1].img);break;
+			 case 2: 
+			 if(nivel>6){
+			 $(this).attr("src", enemies[6].img);
+			 $("#main_enemy").attr("src",enemies[6].img);
+			 }
+			 else
+			 $(this).attr("src","res/q.jpg");
+			 break;
+			 
+			 }
+			 }
+		else
+			$(this).attr("src","res/q.jpg");
+});	
+		
+		  		 
+		  $("#image4").click( function(){	 
+		 if(nivel%6>3||nivel>3)
+			{
+			switch(idmap)
+			 {
+			
+			 case 1:$(this).attr("src", enemies[2].img);
+			 $("#main_enemy").attr("src",enemies[2].img);break;
+			 case 2:
+			 
+			 if(nivel>7){
+			 $(this).attr("src", enemies[7].img);
+			 $("#main_enemy").attr("src",enemies[7].img);
+			 }
+			 else
+			 $(this).attr("src","res/q.jpg");break;
+			 }
+			 }
+		else
+			$(this).attr("src","res/q.jpg");
+});	
+		  
+		  		 
+		  $("#image5").click( function(){	 
+		 if(nivel%6>4||nivel>4){
+		 
+		 switch(idmap)
+			 {
+			
+			 case 1: $(this).attr("src", enemies[3].img);
+			 $("#main_enemy").attr("src",enemies[3].img);break;
+			 case 2:
+			 if(nivel>8){
+			 $(this).attr("src", enemies[8].img);
+			 $("#main_enemy").attr("src",enemies[8].img);
+			 }
+			 else
+			 $(this).attr("src","res/q.jpg");
+			 break;
+			 }
+			 }
+		else
+			$(this).attr("src","res/q.jpg");
+});	
+
+$("#logout").click(function(){
+             var loggedin = JSON.parse(localStorage.getItem("loggedin"));
+                  if(loggedin[0]!=null){
+                      loggedin=null;
+                      localStorage.setItem('loggedin', JSON.stringify(loggedin));
+                      window.location.href = "home.html";
+                  }
+         });
+		  });
+			 
+			 
+    </script>
+</head>
+
+<body>
+<img src="res/bkgr.jpg" id="backgr">
+<header>
+<h1>WORLD HELLSHOUT</h1>
+</header>
+	<section id="banner">
+		<article id="top">
+				<article class="stats">
+					<article class="stats-i">
+						<img src="res/heart.png" id="icon">
+					</article>
+				
+					<article class="stats-t">
+						<p id="viata"></p>
+					</article>
+
+				</article>
+				<article class="stats">
+					<article class="stats-i">
+						<img src="res/coin.png" id="icon">
+					</article>
+					
+					<article class="stats-t">
+						<p id="bani"></></p>
+					</article>
+				
+				</article>
+				<article class="stats">
+					
+					<article class="stats-i">
+						<img src="res/world.png" id="icon">
+					</article>
+					
+					<article class="stats-t">
+						<p>Dark Castle</p>
+					</article>
+				
+				</article>
+		</article>
+		
+		<article id="bottom">
+				<article class="stats">
+					
+					<article class="stats-i">
+						<img src="res/libra.png" id="icon">
+					</article>
+					
+					<article class="stats-t">
+						<p  id="nivel"></></p>
+					</article>				
+				
+				</article>
+				
+				<article class="stats">
+					
+					<article class="stats-i">
+						<img src="res/energy.png" id="icon">
+					</article>
+					
+					<article class="stats-t">
+						<p  id="energie"></></p>
+					</article>				
+				
+				</article>
+			
+				<article class="stats">
+					
+					<article class="stats-i"> 
+						<img src="res/user.png" id="icon">
+					</article>
+					
+					<article class="stats-t">
+						<p  id="rasa"></></p>
+					</article>
+					
+				</article>
+		
+		</article>
+		
+</section>
+<main id="big">	
+
+	<aside id="sider">
+		<article id="clasa"><img class="avatar_c" src="" /></article>
+		
+		<nav class="menu">
+			<ul>		
+				<li><a href="profil.html">Profile</a></li>
+				<li><a href="quest.html">Quest</a></li>
+				<li><a href="explore.html">Explore</a></li>
+				<li><a id="logout" href="#">Log Out</a></li>
+			</ul> 
+		</nav>
+	</aside>
+     <aside id="sider_small">
+         <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <p id="menu_text">Menu</p>
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+             <li><a href="profil.html">Profile</a></li>
+				<li><a href="quest.html">Quest</a></li>
+				<li><a href="explore.html">Explore</a></li>
+				<li><a href="about.asp">Log Out</a></li>
+            </ul>
+            
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+         
+
+    </aside>
+     <aside id="info">
+         <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar2" aria-expanded="false" aria-controls="navbar">
+                <p id="menu_text">Info</p>
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div id="navbar2" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+             <li role="presentation" class="active">Home <span class="badge">42</span></li>
+			 <li role="presentation" class="active">Coin <span class="badge">20</span></li>
+                <li role="presentation" class="active">World <span class="badge">Romania</span></li>
+			 <li role="presentation" class="active">Nivel <span class="badge">3lvl</span></li>
+            <li role="presentation" class="active">Energie <span class="badge">80%</span></li>
+			 <li role="presentation" class="active">Rasa <span class="badge">Matii</span></li>
+
+            </ul>
+            
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+    </aside>
+	<section id="main2">
+			<article class="mainfightmap">
+					<h1 id="titlemap" aling="center" color="white">Dark Castle</h1>
+				<article class="mainmidmap">
+					 <article class="mainleftmap">
+						<h1 id="text_level" style="margin-top:30%;">Level 1</h1>
+					 </article>
+					 <article class="maincentermap">
+						<img id="main_enemy" src="res/wolf.jpg" width=50% height=50%> <br>
+						<input id="buton1" type="submit" value="fight" style="margin-left=6%;">
+					 </article>
+					 <article class="mainrightmap">
+						<h1 id="text_enemy" style="margin-top:30%;">Wolf</h1>
+					 </article>
+					 <div class="clearfix"></div>
+				</article>
+				 
+				 
+				<article class="footerfightmap">
+					<article class="footermap1">
+					<h1 style="margin-top:25%;">Level 1</h1>
+					</article>
+					<article class="footermap2">
+					<h1 style="margin-top:25%;">Level 2</h1>
+					</article>
+					<article class="footermap3">
+					<h1 style="margin-top:25%;">Level 3</h1>
+					</article>
+					<article class="footermap4">
+				   <h1 style="margin-top:25%;">Level 4</h1>
+					</article>
+					<article class="footermap5">
+					<h1 style="margin-top:25%;">Level 5</h1>
+					</article>
+						<article class="clearfix"></article>
+				</article>
+				 
+		 
+		 
+			</article>
+		 
+		 
+		 
+		 
+		 <article class="footerfightmap">
+		    <article class="footermap1">
+				<img id="image1" class="footerimage1" src="res/wolf.jpg"  >
+			</article>
+			<article class="footermap2">
+				<img id="image2" class="footerimage1" src="res/q.jpg"  >
+			</article>
+			<article class="footermap3">
+				<img id="image3" class="footerimage1" src="res/q.jpg" >
+			</article>
+			<article class="footermap4">
+				<img id="image4" class="footerimage1" src="res/q.jpg" >
+			</article>
+			<article class="footermap5">
+				<img id="image5" class="footerimage1" src="res/q.jpg"  >
+			</article>
+				<article class="clearfix"></article>
+		 </article>
+		 
+        <input type="hidden" name="fight_enemy" value="Wolf">
+	</section>
+</main>
+          <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="bootstrap/docs/assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+<script type="text/javascript">
+		
+		var profile = JSON.parse(localStorage.getItem("profile"));
+		var x=profile[0];
+		//alert(x.viata.toString());
+			document.getElementById("viata").innerHTML = x.viata;
+			document.getElementById("nivel").innerHTML = x.nivel;
+			document.getElementById("bani").innerHTML = x.bani;
+			document.getElementById("energie").innerHTML = x.energie;
+			document.getElementById("rasa").innerHTML = x.rasa;
+			
+      </script>
+</body>
+<script type="text/javascript">
+	$(document).ready(function(){
+ var loggedin = JSON.parse(localStorage.getItem("loggedin"));
+          if(loggedin[0]!=null)
+              var user = loggedin[0];	
+		var profile = JSON.parse(localStorage.getItem("profile"));
+		  for(index = 0; index < profile.length; index++) {
+                  var profile_var=profile[index];
+                  if(profile_var.user==user)
+                      {
+					    var nivel=profile_var.nivel;
+						idmap=profile[index].harta;
+						var energie=profile[index].energie;
+					  }
+					  }
+		if(idmap==1)
+		document.getElementById("titlemap").innerHTML = "Dark Castle";
+		if(idmap==2)
+		{
+		document.getElementById("titlemap").innerHTML = "The Fifth Element";
+		$("#main_enemy").attr("src","images/earth_gol.jpg");
+		}
+		var x=profile[0];
+		//alert(x.viata.toString());
+			document.getElementById("viata").innerHTML = x.viata;
+			document.getElementById("nivel").innerHTML = x.nivel;
+			document.getElementById("bani").innerHTML = x.bani;
+			document.getElementById("energie").innerHTML = x.energie;
+			document.getElementById("rasa").innerHTML = x.rasa;
+			
+			$("#logout").click(function(){
+             var loggedin = JSON.parse(localStorage.getItem("loggedin"));
+                  if(loggedin[0]!=null){
+                      loggedin=null;
+                      localStorage.setItem('loggedin', JSON.stringify(loggedin));
+                      window.location.href = "home.html";
+                  }
+         });
+		 
+		 
+		
+	
+		
+		var enemies = JSON.parse(localStorage.getItem("enemies"));	 
+		$("#image1").click( function(){	 
+			if(nivel>0){
+			   if(idmap==1)
+			   {
+				document.getElementById("text_level").innerHTML = "Level 1";
+				document.getElementById("text_enemy").innerHTML = "Wolf";
+				$('input[name=fight_enemy]').val("Wolf");
+				}
+			  if(idmap==2 )
+			   {
+				document.getElementById("text_level").innerHTML = "Level 5";
+				document.getElementById("text_enemy").innerHTML = enemies[4].name;
+			 $('input[name=fight_enemy]').val(enemies[4].name);}
+				}
+			 
+			 
+			 
+});	 
+		$("#image2").click( function(){	 
+			if(nivel>1){
+			if(idmap==1)
+			   {
+			document.getElementById("text_level").innerHTML = "Level 2";
+			 document.getElementById("text_enemy").innerHTML = enemies[0].name;
+			 $('input[name=fight_enemy]').val(enemies[0].name);}
+			 
+			 if(idmap==2 && nivel%6>0)
+			   {
+			   document.getElementById("text_level").innerHTML = "Level 6";
+			 document.getElementById("text_enemy").innerHTML = enemies[5].name;
+			 $('input[name=fight_enemy]').val(enemies[5].name);}
+			 }
+			 
+			 
+});	
+		$("#image3").click( function(){	 
+	
+			if(nivel>2){
+			if(idmap==1)
+			   {
+			document.getElementById("text_level").innerHTML = "Level 3";
+			 document.getElementById("text_enemy").innerHTML = enemies[1].name;
+			 $('input[name=fight_enemy]').val(enemies[1].name);}
+			
+			if(idmap==2 && nivel%6>0 )
+			   {
+			document.getElementById("text_level").innerHTML = "Level 7";
+			 document.getElementById("text_enemy").innerHTML = enemies[6].name;
+			 $('input[name=fight_enemy]').val(enemies[6].name);}
+			}
+			
+			
+});	
+		$("#image4").click( function(){	 
+	
+			if(nivel>3){
+			if(idmap==1)
+			   {
+			document.getElementById("text_level").innerHTML = "Level 4";
+			 document.getElementById("text_enemy").innerHTML = enemies[1].name;
+			 $('input[name=fight_enemy]').val(enemies[1].name);}
+			
+			if(idmap==2 && nivel%6>1)
+			   {
+			document.getElementById("text_level").innerHTML = "Level 8";
+			 document.getElementById("text_enemy").innerHTML = enemies[7].name;
+			 $('input[name=fight_enemy]').val(enemies[7].name);}
+			}
+			
+			
+});		
+		$("#image5").click( function(){	 
+			if(nivel>4){
+			if(idmap==1)
+			{
+			document.getElementById("text_level").innerHTML = "Level 5";
+			 document.getElementById("text_enemy").innerHTML = enemies[3].name;
+			 $('input[name=fight_enemy]').val(enemies[3].name);}
+			 	if(idmap==2 && nivel%6>2)
+			{
+			document.getElementById("text_level").innerHTML = "Level 9";
+			 document.getElementById("text_enemy").innerHTML = enemies[8].name;
+			 $('input[name=fight_enemy]').val(enemies[8].name);}
+			 }
+});	
+ $("#buton1").click(function(){
+
+ if(energie>0){
+
+           var g=$('input[name=fight_enemy]').val();
+		 
+		 
+		 
+		 			 
+//var enemy = JSON.parse(localStorage.getItem("fightenemy"));			 
+			
+		enemy=	$('input[name=fight_enemy]').val(); 
+		localStorage.setItem('fightenemy', JSON.stringify($('input[name=fight_enemy]').val()));
+		
+			 var enemys = JSON.parse(localStorage.getItem("creaturelist"));
+				
+				for(index = 0; index < enemys.length; index++) {
+                  var enemy_var=enemys[index];
+				  if(enemy_var.name==enemy)
+				  {
+				     
+					 var spell1=enemys[index].spell1;
+					 var spell2=enemys[index].spell2;
+					 var spell3=enemys[index].spell3;
+					 var spell4=enemys[index].spell4;	
+				  }
+			 }
+			var atribute_inamic=[];
+			atribute_inamic[0]={spell1};
+			atribute_inamic[1]={spell2};
+			atribute_inamic[2]={spell3};
+			atribute_inamic[3]={spell4};
+			
+			
+			 var image_enemy = JSON.parse(localStorage.getItem("enemies"));
+			 for(index = 0; index < image_enemy.length; index++) {
+                  var enemy_img_var=image_enemy[index];
+				  if(enemy_img_var.name==enemy)
+				  { var imgsrc=enemy_img_var.img;
+				  atribute_inamic[4]={imgsrc};
+				  }
+				  }
+			 localStorage.setItem('atribute_inamic', JSON.stringify(atribute_inamic));
+				window.location.href = "fight.html";
+				
+				
+				for(index = 0; index < profile.length; index++) {
+                  var profile_var=profile[index];
+                  if(profile_var.user==user)
+                      {
+					    profile[index].energie=profile[index].energie -1;
+						localStorage.setItem('profile', JSON.stringify(profile));
+				}
+				}
+				
+		 }
+		 else
+		 alert("nu ai energie suficienta");
+		 });
+		}); 
+
+		
+		
+      </script>
+</html>

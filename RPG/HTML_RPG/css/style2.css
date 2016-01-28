@@ -1,0 +1,27 @@
+body{
+    background: url("back.jpg") no-repeat;
+    background-attachment: fixed;
+    min-height: 100%;
+    min-width: 100%;
+    background-size: cover;
+}
+
+header{
+	position :relative;
+	color:white;
+	font: bold 30px/45px Helvetica, Sans-Serif; 
+	padding: 10px;
+   
+
+}
+h1{
+	color:white;
+}
+
+
+input{
+	border-style:solid;
+	border-color: #996633;
+	background-color:#e6b68a;
+}
+

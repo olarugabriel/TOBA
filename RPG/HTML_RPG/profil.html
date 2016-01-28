@@ -1,0 +1,545 @@
+<html>
+<head>
+    
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/normalize.css">
+
+<link rel="stylesheet" type="text/css" href="css/style_800.css">
+     <!-- Bootstrap core CSS -->
+<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/style_480.css">
+<title> World Hellshout</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>s
+<script>
+     $(document).ready(function(){
+         var loggedin = JSON.parse(localStorage.getItem("loggedin"));
+          if(loggedin[0]!=null){
+              var user = loggedin[0];
+              //alert(user);
+              var profile = JSON.parse(localStorage.getItem("profile"));
+              for(index = 0; index < profile.length; index++) {
+                  var profile_var=profile[index];
+                  if(profile_var.user==user)
+                      {var rasa=profile[index].rasa;
+                      var str=profile[index].putere;
+					  var dex=profile[index].dexteritate;
+					  var intel=profile[index].inteligenta;
+					  var sta=profile[index].stamina;
+					  var end=profile[index].rezistenta;
+                      var avail_money=profile[index].bani;
+					  }
+              }
+              
+              var pret_var = JSON.parse(localStorage.getItem("pret_attr"));
+                            
+              var pret=pret_var.pret;
+              var next_price_str = parseFloat(str) * parseFloat(pret);
+			  var next_price_dex = parseFloat(dex) * parseFloat(pret);
+			  var next_price_int = parseFloat(intel) * parseFloat(pret);
+			  var next_price_sta = parseFloat(sta) * parseFloat(pret);
+			  var next_price_end = parseFloat(end) * parseFloat(pret);
+             
+              //Strenght
+              $('#gold_for_str').append(next_price_str + " G");
+              $('#points_for_str').append(str);
+              
+			  $('#gold_for_dex').append(next_price_dex + " G");
+              $('#points_for_dex').append(dex);
+			  
+			  $('#gold_for_int').append(next_price_int + " G");
+              $('#points_for_int').append(intel);
+			  
+			  $('#gold_for_sta').append(next_price_sta + " G");
+              $('#points_for_sta').append(sta);
+			  
+			  $('#gold_for_end').append(next_price_end + " G");
+              $('#points_for_end').append(end);
+			  
+			  
+			  
+			  
+              var rasalist = JSON.parse(localStorage.getItem("rasalist"));
+              for(index = 0; index < rasalist.length; index++) {
+                      if(rasalist[index].name==rasa){
+                          var img=rasalist[index].img;
+                      }
+              }
+              $(".avatar_c").attr("src",img);
+              
+          }
+         $("#qplus_str").click(function(){
+              if(avail_money < next_price_str)
+                  alert("Nu aveti sufiienti bani!");
+            else{
+                new_avail_money=avail_money-next_price_str;
+                for(index = 0; index < profile.length; index++) {
+                    var profile_var=profile[index];
+                        if(profile_var.user==user){
+                            profile[index].bani=new_avail_money;
+                            profile[index].putere=profile[index].putere + 1;
+                            localStorage.setItem('profile', JSON.stringify(profile));
+                            location.reload();
+                        }
+                }
+            }
+         });
+		 
+		 $("#qplus_dex").click(function(){
+              if(avail_money < next_price_dex)
+                  alert("Nu aveti sufiienti bani!");
+            else{
+                new_avail_money=avail_money-next_price_dex;
+                for(index = 0; index < profile.length; index++) {
+                    var profile_var=profile[index];
+                        if(profile_var.user==user){
+                            profile[index].bani=new_avail_money;
+                            profile[index].dexteritate=profile[index].dexteritate + 1;
+                            localStorage.setItem('profile', JSON.stringify(profile));
+                            location.reload();
+                        }
+                }
+            }
+         });
+		 
+		 $("#qplus_int").click(function(){
+              if(avail_money < next_price_int)
+                  alert("Nu aveti sufiienti bani!");
+            else{
+                new_avail_money=avail_money-next_price_int;
+                for(index = 0; index < profile.length; index++) {
+                    var profile_var=profile[index];
+                        if(profile_var.user==user){
+                            profile[index].bani=new_avail_money;
+                            profile[index].inteligenta=profile[index].inteligenta + 1;
+                            localStorage.setItem('profile', JSON.stringify(profile));
+                            location.reload();
+                        }
+                }
+            }
+         });
+		 
+		 $("#qplus_sta").click(function(){
+              if(avail_money < next_price_sta)
+                  alert("Nu aveti sufiienti bani!");
+            else{
+                new_avail_money=avail_money-next_price_sta;
+                for(index = 0; index < profile.length; index++) {
+                    var profile_var=profile[index];
+                        if(profile_var.user==user){
+                            profile[index].bani=new_avail_money;
+                            profile[index].stamina=profile[index].stamina + 1;
+                            localStorage.setItem('profile', JSON.stringify(profile));
+                            location.reload();
+                        }
+                }
+            }
+         });
+		 
+		 $("#qplus_end").click(function(){
+              if(avail_money < next_price_end)
+                  alert("Nu aveti sufiienti bani!");
+            else{
+                new_avail_money=avail_money-next_price_end;
+                for(index = 0; index < profile.length; index++) {
+                    var profile_var=profile[index];
+                        if(profile_var.user==user){
+                            profile[index].bani=new_avail_money;
+                            profile[index].rezistenta=profile[index].rezistenta + 1;
+                            localStorage.setItem('profile', JSON.stringify(profile));
+                            location.reload();
+                        }
+                }
+            }
+         });
+		 
+		 
+		 
+         
+         $("#logout").click(function(){
+             var loggedin = JSON.parse(localStorage.getItem("loggedin"));
+                  if(loggedin[0]!=null){
+                      loggedin=null;
+                      localStorage.setItem('loggedin', JSON.stringify(loggedin));
+                      window.location.href = "home.html";
+                  }
+         });
+         
+		 
+		 
+		 
+     });
+</script>
+
+</head>
+
+<body>
+<img src="res/bkgr.jpg" id="backgr">
+<header>
+<h1>WORLD HELLSHOUT</h1>
+</header>
+<section id="banner">
+		<article id="top">
+				<article class="stats">
+					<article class="stats-i">
+						<img src="res/heart.png" id="icon">
+					</article>
+				
+					<article class="stats-t">
+						<p id="viata"></p>
+					</article>
+
+				</article>
+				<article class="stats">
+					<article class="stats-i">
+						<img src="res/coin.png" id="icon">
+					</article>
+					
+					<article class="stats-t">
+						<p id="bani"></></p>
+					</article>
+				
+				</article>
+				<article class="stats">
+					
+					<article class="stats-i">
+						<img src="res/world.png" id="icon">
+					</article>
+					
+					<article class="stats-t">
+						<p>Dark Castle</p>
+					</article>
+				
+				</article>
+		</article>
+		
+		<article id="bottom">
+				<article class="stats">
+					
+					<article class="stats-i">
+						<img src="res/libra.png" id="icon">
+					</article>
+					
+					<article class="stats-t">
+						<p  id="nivel"></></p>
+					</article>				
+				
+				</article>
+				
+				<article class="stats">
+					
+					<article class="stats-i">
+						<img src="res/energy.png" id="icon">
+					</article>
+					
+					<article class="stats-t">
+						<p  id="energie"></></p>
+					</article>				
+				
+				</article>
+			
+				<article class="stats">
+					
+					<article class="stats-i"> 
+						<img src="res/user.png" id="icon">
+					</article>
+					
+					<article class="stats-t">
+						<p  id="rasa"></></p>
+					</article>
+					
+				</article>
+		
+		</article>
+		
+</section>
+	
+<main id="big">	
+
+	<aside id="sider">
+		<article id="clasa"><img class="avatar_c" src="" /></article>
+		<nav class="menu">
+			<ul>		
+				<li><a href="profil.html">Profile</a></li>
+				<li><a href="quest.html">Quest</a></li>
+				<li><a href="explore.html">Explore</a></li>
+				<li><a id="logout" href="#">Log Out</a></li>
+			</ul> 
+		</nav>
+	</aside>
+    <aside id="sider_small">
+         <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <p id="menu_text">Menu</p>
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+             <li><a href="profil.html">Profile</a></li>
+				<li><a href="quest.html">Quest</a></li>
+				<li><a href="explore.html">Explore</a></li>
+				<li><a href="about.asp">Log Out</a></li>
+            </ul>
+            
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+         
+
+    </aside>
+     <aside id="info">
+         <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar2" aria-expanded="false" aria-controls="navbar">
+                <p id="menu_text">Info</p>
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div id="navbar2" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+             <li role="presentation" class="active">Home <span class="badge">42</span></li>
+			 <li role="presentation" class="active">Coin <span class="badge">20</span></li>
+                <li role="presentation" class="active">World <span class="badge">Romania</span></li>
+			 <li role="presentation" class="active">Nivel <span class="badge">3lvl</span></li>
+            <li role="presentation" class="active">Energie <span class="badge">80%</span></li>
+			 <li role="presentation" class="active">Rasa <span class="badge">Matii</span></li>
+
+            </ul>
+            
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+    </aside>
+    
+     
+    
+	<section id="main">
+	
+	
+	<section id="content">
+            <article id="nume">
+                <p id="humanname"></p>
+            </article>
+
+            <figure id="avatar">
+                <img src="css/avatar.jpg" id="ava">
+            </figure>
+
+            <article id="echipament">
+
+                    <article id="casca" class="r1">
+                        <img id="helm" src="" class="equip">
+                    </article>
+                    <select  class="s1">
+                        <option value="helm1">Helm</option>
+                        <option value="heml2">Helm2</option>
+                    </select>
+                    <article id="arma" class="r2">
+                        <img src="res/sword.png"  class="equip">
+                    </article>
+
+                    <article id="chest" class="r2">
+                        <img id="chest" src="" class="equip">
+                    </article>
+
+                    <article id="scut" class="r2">
+                        <img id="shield" src="" class="equip">
+                    </article>
+                    <select   class="s2">
+                        <option value="wep1">Sword</option>
+                      
+                    </select>
+                    <select  class="s2">
+                        <option value="chest1">Chest</option>
+                   
+                    </select>
+                    <select  class="s2">
+                        <option value="shield1">Shield</option>
+                      
+                    </select>		
+
+                    <article id="manusi" class="r3">
+                        <img id="gloves" src="" class="equip">
+                    </article>
+
+                    <article id="ghete" class="r3">
+                        <img id="boots" src="" class="equip">
+                    </article>
+
+                    <article id="mount" class="r3">
+                        <img id="boar" src="" class="equip">
+                    </article>
+                    <select  class="s3">
+                        <option value="gloves1">Gloves</option>
+                      
+                    </select>	
+                    <select class="s3">
+                        <option value="Boots1">Boots</option>
+                        
+                    </select>	
+                    <select class="s3">
+                        <option value="mount1">Boar</option>
+                      
+                    </select>	
+            </article>
+
+            <article id="train">
+              <article class="att1"><input type='button' value='+' class='qplus' id="qplus_str" field='quantity' /><p id="gold_for_str"></p><p id="points_for_str"></p><p>Strength</p></article>
+                <input type="hidden" id="strength_price" />
+              <article class="att1"><input type='button' value='+' class='qplus' id="qplus_dex" field='quantity' /><p id="gold_for_dex"></p><p id="points_for_dex"> </p><p>Dexterity   </p></article>
+              <article class="att1"><input type='button' value='+' class='qplus' id="qplus_int" field='quantity' /><p id="gold_for_int"></p><p id="points_for_int"> </p><p>Intelligence</p></article>
+              <article class="att1"><input type='button' value='+' class='qplus' id="qplus_sta" field='quantity' /><p id="gold_for_sta"></p><p id="points_for_sta"></p><p>Stamina     </p></article>
+              <article class="att1"><input type='button' value='+' class='qplus' id="qplus_end" field='quantity' /><p id="gold_for_end"></p><p id="points_for_end"> </p><p>Endurance   </p></article>
+            </article>
+        </section>
+    </section>
+    
+    <section id="conent_mobile">
+        <aside id="menu_train_mobile">
+         <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#train_bar" aria-expanded="false" aria-controls="navbar">
+                <p id="menu_text">Train</p>
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div id="train_bar" class="navbar-collapse collapse">
+            <article id="train">
+              <article class="att1"><input type='button' value='+' class='qplus' class="qplus_str" field='quantity' /><p id="gold_for_str"></p><p id="points_for_str"></p><p>Strength</p></article>
+                <input type="hidden" id="strength_price" />
+              <article class="att1"><input type='button' value='+' class='qplus' class="qplus_dex" field='quantity' /><p id="gold_for_dex"></p><p id="points_for_dex"> </p><p>Dexterity   </p></article>
+              <article class="att1"><input type='button' value='+' class='qplus' class="qplus_int" field='quantity' /><p id="gold_for_int"></p><p id="points_for_int"> </p><p>Intelligence</p></article>
+              <article class="att1"><input type='button' value='+' class='qplus' class="qplus_sta" field='quantity' /><p id="gold_for_sta"></p><p id="points_for_sta"></p><p>Stamina     </p></article>
+              <article class="att1"><input type='button' value='+' class='qplus' class="qplus_end" field='quantity' /><p id="gold_for_end"></p><p id="points_for_end"> </p><p>Endurance   </p></article>
+            </article>
+            
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+    </aside>
+        <ul class="list-group">
+          <li class="list-group-item">
+                <img src="res/helm.png">
+                <select class="select_mobile" class="equip">
+                     <option value="helm1">Helm</option>
+                     <option value="heml2">Helm2</option>
+                </select>    
+            </li>
+           <li class="list-group-item">
+                <img src="res/sword.png" class="equip">
+                <select class="select_mobile">
+                    <option value="wep1">Sword</option>
+                    <option value="wep2">Sword2</option>
+                </select>    
+            </li>
+             <li class="list-group-item">
+                 <img src="res/chest.png" class="equip">
+                <select class="select_mobile">
+                      <option value="chest1">Chest</option>
+                    <option value="chest2">Chest2</option>
+                </select>    
+            </li>
+             <li class="list-group-item">
+                <img src="res/shield.png"  class="equip">
+                <select class="select_mobile">
+                      <option value="shield1">Shield</option>
+                    <option value="shield2">Shield2</option>
+                </select>    
+            </li>
+             <li class="list-group-item">
+                <img src="res/gloves.png" class="equip">
+                <select class="select_mobile" >
+                      <option value="gloves1">Gloves</option>
+                        <option value="gloves2">Gloves2</option>
+                </select>    
+            </li>
+             <li class="list-group-item">
+                <img src="res/boots.png" class="equip">
+                <select class="select_mobile">
+                    <option value="Boots1">Boots</option>
+                        <option value="Boots2">Boots2</option>
+                </select>    
+            </li>
+              <li class="list-group-item">
+                  <img src="res/boar.png" class="equip">
+                <select class="select_mobile">
+                     <option value="mount1">Boar</option>
+                        <option value="Mount2">Boar2</option>
+                </select>    
+            </li>
+            
+        </ul>
+    </section>
+    
+	<footer>
+<p> TOBA - All Rights Reserved </p>
+</footer>
+</main>
+    
+
+           <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="bootstrap/docs/assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+<script type="text/javascript">
+		
+		var profile = JSON.parse(localStorage.getItem("profile"));
+		var x=profile[0];
+		//alert(x.viata.toString());
+			document.getElementById("viata").innerHTML = x.viata;
+			document.getElementById("nivel").innerHTML = x.nivel;
+			document.getElementById("bani").innerHTML = x.bani;
+			document.getElementById("energie").innerHTML = x.energie;
+			document.getElementById("rasa").innerHTML = x.rasa;
+			
+			
+			
+			var loggedin = JSON.parse(localStorage.getItem("loggedin"));
+          if(loggedin[0]!=null)
+              var user = loggedin[0];
+ document.getElementById("humanname").innerHTML = user;
+ var profile = JSON.parse(localStorage.getItem("profile"));
+              for(index = 0; index < profile.length; index++) {
+                  var profile_var=profile[index];
+                  if(profile_var.user==user)
+                      {
+					  var rasa=profile[index].rasa;
+					  nivel=profile[index].nivel;
+					  }
+
+					 } 
+					 if(nivel>4)
+					 $("#shield").attr("src","res/shield.png" );
+					 if(nivel>9)
+					 $("#helm").attr("src","res/helm.png" );
+					 if(nivel>14)
+					 $("#chest").attr("src","res/chest.png" );
+					 if(nivel>19)
+					 $("#boots").attr("src","res/boots.png" );
+					 if(nivel>24)
+					 $("#gloves").attr("src","res/gloves.png" );
+					 if(nivel>29)
+					 $("#boar").attr("src","res/boar.png" );
+					 
+      </script>
+</html>

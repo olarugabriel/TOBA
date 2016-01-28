@@ -1,0 +1,367 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/normalize.css">
+<link rel="stylesheet" type="text/css" href="css/style_480.css">
+<link rel="stylesheet" type="text/css" href="css/style_800.css">
+     <!-- Bootstrap core CSS -->
+<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<title> World Hellshout</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/level.js"></script>
+<script>
+	$(document).ready(function(){
+        var new_exp=0;
+		var img;
+		var rasa,user,profile_var,exp_var,qq;
+        var loggedin = JSON.parse(localStorage.getItem("loggedin"));
+          if(loggedin[0]!=null)
+              user = loggedin[0];
+  // alert("Profil");
+ var profile = JSON.parse(localStorage.getItem("profile"));
+              for(index = 0; index < profile.length; index++) {
+                  profile_var=profile[index];
+                  if(profile_var.user==user)
+                     { rasa=profile[index].rasa;
+					  exp_var=profile[index].experienta;
+					  qq=parseInt(profile[index].quest);
+					 
+					  }
+					 } 
+	//  alert("Rasa");				  
+var rasalist = JSON.parse(localStorage.getItem("rasalist"));
+              for(index = 0; index < rasalist.length; index++) {
+                      if(rasalist[index].name==rasa){
+                          img=rasalist[index].img;
+                      }
+              }
+	$(".avatar_c").attr("src",img);
+	//  alert("Exp");
+  // exp_var = parseInt(JSON.parse(localStorage.getItem("exp")));
+		 
+	//  alert("end");		  
+        
+      
+	  $(".rsp1").click(function(){
+			if(intrebari[qq].r1==corect)
+			{
+			            var quest_exp=20;
+            alert("Correct!");
+         
+            new_exp = parseInt(exp_var) + parseInt(quest_exp);
+         
+		       for(index = 0; index < profile.length; index++) {
+                  profile_var=profile[index];
+                  if(profile_var.user==user)
+						{profile[index].experienta=parseInt(new_exp);
+						profile[index].quest=qq+1;}
+					 } 
+					 localStorage.setItem('profile', JSON.stringify(profile));
+			 window.location.href = "quest.html";
+			}
+		else
+		   alert("Wrong! Try Again!");
+        });
+        
+        $(".rsp2").click(function(){
+            if(intrebari[qq].r2==corect)
+			{
+			var quest_exp=20;
+            alert("Correct!");
+         
+            new_exp = parseInt(exp_var) + parseInt(quest_exp);
+         
+		       for(index = 0; index < profile.length; index++) {
+                  profile_var=profile[index];
+                  if(profile_var.user==user)
+						{profile[index].experienta=parseInt(new_exp);
+					 profile[index].quest=qq+1;}
+					 } 
+					 localStorage.setItem('profile', JSON.stringify(profile));
+					  window.location.href = "quest.html";
+		 }
+		 else
+		  alert("Wrong! Try Again!");
+		 // localStorage.setItem('exp', JSON.stringify(new_exp));
+        });
+        
+        $(".rsp3").click(function(){
+			if(intrebari[qq].r3==corect)
+			{
+			var quest_exp=20;
+            alert("Correct!");
+       
+            new_exp = parseInt(exp_var) + parseInt(quest_exp);
+         
+		       for(index = 0; index < profile.length; index++) {
+                  profile_var=profile[index];
+                  if(profile_var.user==user)
+						{profile[index].experienta=parseInt(new_exp);
+						profile[index].quest=qq+1;}
+					 } 
+					 localStorage.setItem('profile', JSON.stringify(profile));
+					  window.location.href = "quest.html";
+			
+			}
+			else
+		   alert("Wrong! Try Again!");
+        });
+
+		 $("#logout").click(function(){
+             var loggedin = JSON.parse(localStorage.getItem("loggedin"));
+                  if(loggedin[0]!=null){
+                      loggedin=null;
+                      localStorage.setItem('loggedin', JSON.stringify(loggedin));
+                      window.location.href = "home.html";
+                  }
+         });
+		
+			  });
+</script>
+</head>
+
+<body>
+<img src="res/bkgr.jpg" id="backgr">
+<header>
+<h1>WORLD HELLSHOUT</h1>
+</header>
+<section id="banner">
+		<article id="top">
+				<article class="stats">
+					<article class="stats-i">
+						<img src="res/heart.png" id="icon">
+					</article>
+				
+					<article class="stats-t">
+						<p id="viata"></p>
+					</article>
+
+				</article>
+				<article class="stats">
+					<article class="stats-i">
+						<img src="res/coin.png" id="icon">
+					</article>
+					
+					<article class="stats-t">
+						<p id="bani"></></p>
+					</article>
+				
+				</article>
+				<article class="stats">
+					
+					<article class="stats-i">
+						<img src="res/world.png" id="icon">
+					</article>
+					
+					<article class="stats-t">
+						<p>Dark Castle</p>
+					</article>
+				
+				</article>
+		</article>
+		
+		<article id="bottom">
+				<article class="stats">
+					
+					<article class="stats-i">
+						<img src="res/libra.png" id="icon">
+					</article>
+					
+					<article class="stats-t">
+						<p  id="nivel"></></p>
+					</article>				
+				
+				</article>
+				
+				<article class="stats">
+					
+					<article class="stats-i">
+						<img src="res/energy.png" id="icon">
+					</article>
+					
+					<article class="stats-t">
+						<p  id="energie"></></p>
+					</article>				
+				
+				</article>
+			
+				<article class="stats">
+					
+					<article class="stats-i"> 
+						<img src="res/user.png" id="icon">
+					</article>
+					
+					<article class="stats-t">
+						<p  id="rasa"></></p>
+					</article>
+					
+				</article>
+		
+		</article>
+		
+</section>
+<main id="big">	
+
+	<aside id="sider">
+		<article id="clasa"><img class="avatar_c" src="" /></article>
+		<nav class="menu">
+			<ul>		
+				<li><a href="profil.html">Profile</a></li>
+				<li><a href="quest.html">Quest</a></li>
+				<li><a href="explore.html">Explore</a></li>
+				<li><a  id="logout" href="#">Log Out</a></li>
+			</ul> 
+		</nav>
+	</aside>
+      <aside id="sider_small">
+         <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <p id="menu_text">Menu</p>
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+             <li><a href="profil.html">Profile</a></li>
+				<li><a href="quest.html">Quest</a></li>
+				<li><a href="explore.html">Explore</a></li>
+				<li><a href="about.asp">Log Out</a></li>
+            </ul>
+            
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+         
+
+    </aside>
+     <aside id="info">
+         <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar2" aria-expanded="false" aria-controls="navbar">
+                <p id="menu_text">Info</p>
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div id="navbar2" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+             <li role="presentation" class="active">Home <span class="badge">42</span></li>
+			 <li role="presentation" class="active">Coin <span class="badge">20</span></li>
+                <li role="presentation" class="active">World <span class="badge">Romania</span></li>
+			 <li role="presentation" class="active">Nivel <span class="badge">3lvl</span></li>
+            <li role="presentation" class="active">Energie <span class="badge">80%</span></li>
+			 <li role="presentation" class="active">Rasa <span class="badge">Matii</span></li>
+
+            </ul>
+            
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+    </aside>
+	<section id="main">
+	     
+		
+		 <figure id="avatarQ">
+		 <img src="res/qpic.jpg" id="avaQ">
+		 </figure>
+
+
+		<article id="title_container">
+			<h1 id="qTitle">Ghicitori : Testeaza-ti inteligenta! <h1>
+		</article>
+		
+		
+		<article id="quest_story">
+			<p>Vraciul orasului pune la incercare cunostintele eroilor,oferindu-le o mica recompensa.Fa-i o vizita.</p>
+			<p></p>
+			<p></p>
+			<p>Nu conteaza ce gandesti, sau ce frici ai, daca treci la actiune! Actiunea este singurul lucru care conteaza… Sunt sigura ca la sfarsitul vietii, nu voi privi inapoi si voi spune Imi doresc să fi trecut mai des la actiune.</p>
+		</article>
+		 
+		<article id="quest_req">
+		 <p>Dificulty :Medium</p>
+		 <p></p>
+		 <p></p>
+	     <p></p>
+		 <p></p>
+		 <p>Reward</p>
+		 <p>Exp: 20</p>
+		</article>
+		
+		
+		<article id="quest_do">
+		<p id="question"></p>
+		</article>
+
+
+        <nav id="quest_buttons">
+          <ul class="pager" >
+           
+            <li><a class="rsp1" id="r1" href="#"></a></li>
+            <li><a class="rsp2" id="r2" href="#"></a></li>
+            <li><a class="rsp3" id="r3" href="#"></a></li>
+       
+          </ul>
+        </nav>
+          <nav id="quest_buttons_mobile">
+          <ul class="pager">
+            <li  class="previous"><a href="#" ><span aria-hidden="true">&larr;</span> Older</a></li>
+			<li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li></br>
+            <li ><a href="#"> Accept</a></li>
+          </ul>
+        </nav>
+	</section>
+
+</main>
+                 <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="bootstrap/docs/assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+<script type="text/javascript">
+		
+		var profile = JSON.parse(localStorage.getItem("profile"));
+		var x=profile[0];
+		//alert(x.viata.toString());
+			document.getElementById("viata").innerHTML = x.viata;
+			document.getElementById("nivel").innerHTML = x.nivel;
+			document.getElementById("bani").innerHTML = x.bani;
+			document.getElementById("energie").innerHTML = x.energie;
+			document.getElementById("rasa").innerHTML = x.rasa;
+			
+			var qq,user;
+			var loggedin = JSON.parse(localStorage.getItem("loggedin"));
+          if(loggedin[0]!=null)
+              user = loggedin[0];
+		for(index = 0; index < profile.length; index++) {
+                  profile_var=profile[index];
+                  if(profile_var.user==user)
+                      rasa=profile[index].rasa;
+					  exp_var=profile[index].experienta;
+					  qq=parseInt(profile[index].quest);
+					 
+					 } 	
+			var corect;
+			
+			
+			var intrebari=JSON.parse(localStorage.getItem("quests"));	
+			document.getElementById("question").innerHTML = intrebari[qq].question;
+			document.getElementById("r1").innerHTML = intrebari[qq].r1;
+			document.getElementById("r2").innerHTML = intrebari[qq].r2;
+			document.getElementById("r3").innerHTML = intrebari[qq].r3;
+			corect=intrebari[qq].rc;
+      </script>
+</html>

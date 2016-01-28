@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Facebook Login JavaScript Example</title>
+<meta charset="UTF-8">
+</head>
+<body>
+<script>
+		// initialize and setup facebook js sdk
+		window.fbAsyncInit = function() {
+		    FB.init({
+		      appId      : '906108362818264',
+		      xfbml      : true,
+		      version    : 'v2.5'
+		    });
+		    FB.getLoginStatus(function(response) {
+		    	if (response.status === 'connected') {
+		    		document.getElementById('status').innerHTML = 'We are connected.';
+		    		document.getElementById('login').style.visibility = 'hidden';
+		    	} else if (response.status === 'not_authorized') {
+		    		document.getElementById('status').innerHTML = 'We are not logged in.'
+		    	} else {
+		    		document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
+		    	}
+		    });
+		};
+		(function(d, s, id){
+		    var js, fjs = d.getElementsByTagName(s)[0];
+		    if (d.getElementById(id)) {return;}
+		    js = d.createElement(s); js.id = id;
+		    js.src = "//connect.facebook.net/en_US/sdk.js";
+		    fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+		
+		// login with facebook with extra permissions
+		function login() {
+			FB.login(function(response) {
+				if (response.status === 'connected') {
+		    		document.getElementById('status').innerHTML = 'We are connected.';
+		    		document.getElementById('login').style.visibility = 'hidden';
+		    	} else if (response.status === 'not_authorized') {
+		    		document.getElementById('status').innerHTML = 'We are not logged in.'
+		    	} else {
+		    		document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
+		    	}
+			}, {scope: 'email'});
+		}
+		
+		// getting basic user info
+		function getInfo() {
+			FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id,cover,picture,email'}, function(response) {
+				document.getElementById('status').innerHTML = response.id;
+				document.getElementById('first_name').innerHTML = response.first_name;
+				document.getElementById('last_name').innerHTML = response.last_name;
+				document.getElementById('email').innerHTML = response.email;
+				document.getElementById('link').src=response.cover.source;
+				document.getElementById('photo').src=response.picture.data.url;
+
+
+			});
+		}
+	</script>
+
+	<div id="status"></div>
+	<div id="first_name"></div>
+	<div id="last_name"></div>
+	<img id="link"  width="100px" height="100px"/>
+	<img id="photo"  width="100px" height="100px"/>
+	<div id="w" ></div>
+	<div id="email" ></div>
+	<button onclick="getInfo()">Get Info</button>
+	<button onclick="login()" id="login">Login</button>
+
+</body>
+</html>
